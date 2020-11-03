@@ -1,0 +1,34 @@
+site_name: 麻雀アルゴリズム
+theme:
+  name: material
+  langage: ja
+  palette:
+    scheme: default
+    primary: cyan
+    accent: pink
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - def_list
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+pages:
+  - 1. 牌空間: 'tile_space.md'
+  - 2. 手牌(牌山)生成: 'generating_hand.md'
+  - 3. 和了と聴牌: 'winning_hand.md'
+  - 4. 固有形: 'unique_form.md'
+  - 5. 連立集合漸化式: 'ssrf.md'
+  - 6. 和了確率: 'probability.md'
+  - 付録:
+      - A. 天和の確率: 'tenhou.md'
+      - B. 置換定理: 'permutation.md'
