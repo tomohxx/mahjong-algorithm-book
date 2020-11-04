@@ -600,8 +600,7 @@
 17
 18
 19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">isrh2</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">isrh2</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">h</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">wait</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -614,10 +613,9 @@
       <span class="o">++</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 
       <span class="k">if</span><span class="p">(</span><span class="n">iswh0</span><span class="p">(</span><span class="n">h</span><span class="p">)){</span>
-        <span class="o">--</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
         <span class="n">wait</span> <span class="o">^=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="k">else</span> <span class="o">--</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="o">--</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="n">wait</span><span class="p">;</span>
