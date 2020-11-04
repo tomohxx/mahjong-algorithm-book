@@ -54,7 +54,7 @@ bool iswh0(const int* h)
   int a = h[0], b = h[1];
 
   for(int i=0; i<7; ++i){
-    if(int r=a%3; b>=r && hand[i+2]>=r){
+    if(int r=a%3; b>=r && h[i+2]>=r){
       a=b-r; b=h[i+2]-r;
     }
     else return false;
