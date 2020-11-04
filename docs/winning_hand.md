@@ -108,10 +108,9 @@ int isrh2(int* h)
       ++h[i];
 
       if(iswh0(h)){
-        --h[i];
         wait ^= 1<<i;
       }
-      else --h[i];
+      --h[i];
     }
   }
   return wait;
