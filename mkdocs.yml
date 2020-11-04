@@ -22,6 +22,10 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+google_analytics:
+  - G-GDPQVQ6X3L
+  - auto
+
 pages:
   - 1. 牌空間: 'tile_space.md'
   - 2. 手牌(牌山)生成: 'generating_hand.md'
