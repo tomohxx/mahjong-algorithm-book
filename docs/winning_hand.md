@@ -16,7 +16,10 @@ $3N+2$聴牌
 $3N+1$聴牌
 : $h \in H$に1枚牌を加えることで$3N+2$和了になるならば, $h \in H$は$3N+1$聴牌である. また, このときに加えることができる牌の集合を待ちという.
 
-![](img/states.svg)
+<figure text-align="center">
+  <img src="/img/states.svg"/>
+  <figcaption>図1: 手牌の状態</figcaption>
+</figure>
 
 ## 和了(聴牌)になるための必要条件
 

@@ -16,6 +16,8 @@ markdown_extensions:
       generic: true
   - admonition
   - def_list
+  - toc:
+      permalink: true
 
 extra_javascript:
   - javascripts/config.js
@@ -35,4 +37,4 @@ pages:
   - 6. 和了確率: 'probability.md'
   - 付録:
       - A. 天和の確率: 'tenhou.md'
-      - B. 置換定理: 'permutation.md'
+      - B. 置換定理と唯一性の定理: 'permutation.md'
