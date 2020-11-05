@@ -1,4 +1,8 @@
 site_name: 麻雀アルゴリズム
+site_url: https://tomohxx.github.io/mahjong-algorithm-book
+repo_name: tomohxx/mahjong-algorithm-book
+repo_url: https://github.com/tomohxx/mahjong-algorithm-book
+
 theme:
   name: material
   langage: ja
