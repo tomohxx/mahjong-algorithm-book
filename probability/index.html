@@ -484,7 +484,7 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
 <h2 id="_3">具体的な手牌の和了確率<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>具体的な手牌の和了確率を考える場合, 有効牌の枚数の変化は1通りではなく引いた牌に応じて分岐する. なお, 有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.</p>
 <figure text-align="center">
-  <img src="/img/tree-1.svg"/>
+  <img src="../img/tree-1.svg"/>
   <figcaption>図1: 4枚形23m24pの変化</figcaption>
 </figure>
 
@@ -501,7 +501,7 @@ p^{(l, d)}_{t+1} &amp;= \frac{b^{(l, d-1)}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t &
 \]</div>
 <p>ここで, <span class="arithmatex">\(a^{(l, i)}\)</span>は経路<span class="arithmatex">\(l\)</span>の深さ<span class="arithmatex">\(i\)</span>の状態の有効牌の枚数, <span class="arithmatex">\(b^{(l, i)}\)</span>は経路<span class="arithmatex">\(l\)</span>の深さ<span class="arithmatex">\(i\)</span>の状態から同じ経路の深さ<span class="arithmatex">\(i+1\)</span>の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路<span class="arithmatex">\(OAB\)</span>では, <span class="arithmatex">\(a^{(OAB, 0)} = 14, b^{(OAB, 0)} = 4, a^{(OAB, 1)} = 6, b^{(OAB, 1)} = 3\)</span>となる. この例からわかるように<span class="arithmatex">\(a^{(l, i)} \ge b^{(l, i)}\)</span>となる. <span class="arithmatex">\(t\)</span>巡目で経路<span class="arithmatex">\(l\)</span>によって和了する確率は<span class="arithmatex">\(p^{(l, d)}_t\)</span>である.</p>
 <figure text-align="center">
-  <img src="/img/tree-2.svg"/>
+  <img src="../img/tree-2.svg"/>
   <figcaption>図2: 手牌の変化の木</figcaption>
 </figure>
 
