@@ -360,7 +360,7 @@
 
   <li class="md-nav__item">
     <a href="../permutation/" class="md-nav__link">
-      B. 置換定理
+      B. 置換定理と唯一性の定理
     </a>
   </li>
 
@@ -461,8 +461,8 @@
               
                 
                 
-                <h1 id="_1">和了と聴牌</h1>
-<h2 id="_2">定義</h2>
+                <h1 id="_1">和了と聴牌<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>通常の意味での和了および聴牌を拡張して, <span class="arithmatex">\(3N\)</span>和了と<span class="arithmatex">\(3N+2\)</span>和了, <span class="arithmatex">\(3N+2\)</span>聴牌と<span class="arithmatex">\(3N+1\)</span>聴牌を定義する.</p>
 <dl>
 <dt><span class="arithmatex">\(3N\)</span>和了</dt>
@@ -474,8 +474,12 @@
 <dt><span class="arithmatex">\(3N+1\)</span>聴牌</dt>
 <dd><span class="arithmatex">\(h \in H\)</span>に1枚牌を加えることで<span class="arithmatex">\(3N+2\)</span>和了になるならば, <span class="arithmatex">\(h \in H\)</span>は<span class="arithmatex">\(3N+1\)</span>聴牌である. また, このときに加えることができる牌の集合を待ちという.</dd>
 </dl>
-<p><img alt="" src="../img/states.svg" /></p>
-<h2 id="_3">和了(聴牌)になるための必要条件</h2>
+<figure text-align="center">
+  <img src="/img/states.svg"/>
+  <figcaption>図1: 手牌の状態</figcaption>
+</figure>
+
+<h2 id="_3">和了(聴牌)になるための必要条件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>一色手の牌の添字の和<span class="arithmatex">\(s = \sum_{i=0}^{8} i h^n_i\)</span>について考える. <span class="arithmatex">\(s\)</span>を用いることで和了(聴牌)になるための必要条件を得られる. なお, 以下の合同式では<span class="arithmatex">\(\bmod 3\)</span>を省略している.</p>
 <dl>
 <dt>3N和了になるための必要条件(定理1)</dt>
@@ -505,8 +509,8 @@
 <blockquote>
 <p>定理2より<span class="arithmatex">\(p \equiv 2(s+x)\)</span>. 整理して<span class="arithmatex">\(2s \equiv p - 2x \equiv p + x\)</span>.</p>
 </blockquote>
-<h2 id="_4">一色手の和了(聴牌)判定アルゴリズム</h2>
-<h3 id="3n">3N和了判定</h3>
+<h2 id="_4">一色手の和了(聴牌)判定アルゴリズム<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="3n">3N和了判定<a class="headerlink" href="#3n" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(h^n_i\)</span>の要素を<span class="arithmatex">\(i=0\)</span>から走査し, 面子を取り出していく. <span class="arithmatex">\(h^n_i = 1, 2, 4\)</span>のときは<span class="arithmatex">\(h^n_i \bmod 3\)</span>個の順子を取り出す. <span class="arithmatex">\(h^n_i = 3\)</span>のときは, 可能性として順子3個を取り出すか刻子1個を取り出すかの2通りの操作が考えられるが, 前者が可能である場合は後者も可能となる一方で, 後者が可能である場合はいつも前者が可能となるわけではない. よって<span class="arithmatex">\(h^n_i = 3\)</span>のときは刻子を取り出すと決めてしまってよい.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -535,7 +539,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="3n2">3N+2和了判定</h3>
+<h3 id="3n2">3N+2和了判定<a class="headerlink" href="#3n2" title="Permanent link">&para;</a></h3>
 <p>雀頭候補を取り出した手牌が<span class="arithmatex">\(3N\)</span>和了であるか判定する.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -580,7 +584,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="3n2_1">3N+2聴牌判定</h3>
+<h3 id="3n2_1">3N+2聴牌判定<a class="headerlink" href="#3n2_1" title="Permanent link">&para;</a></h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -622,7 +626,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="3n1">3N+1聴牌判定</h3>
+<h3 id="3n1">3N+1聴牌判定<a class="headerlink" href="#3n1" title="Permanent link">&para;</a></h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3

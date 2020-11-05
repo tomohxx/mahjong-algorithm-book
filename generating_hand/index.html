@@ -319,7 +319,7 @@
 
   <li class="md-nav__item">
     <a href="../permutation/" class="md-nav__link">
-      B. 置換定理
+      B. 置換定理と唯一性の定理
     </a>
   </li>
 
@@ -379,8 +379,8 @@
               
                 
                 
-                <h1 id="_1">手牌(牌山)生成</h1>
-<h2 id="_2">全幅</h2>
+                <h1 id="_1">手牌(牌山)生成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">全幅<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(M\)</span>枚の牌からなる手牌, すなわち<span class="arithmatex">\(\sum_{i=0}^8 h^n_i = M\)</span>となるすべての<span class="arithmatex">\(h^n\)</span>を生成する. 今<span class="arithmatex">\(h^n_i\)</span>を考えていて, (<span class="arithmatex">\(i\)</span>番目の牌を含め)<span class="arithmatex">\(m\)</span>枚牌を使わなければならないとする. まず<span class="arithmatex">\(h^n_i\)</span>の最大値は<span class="arithmatex">\({\rm min}(4, m)\)</span>である. 次に最小値を考える. <span class="arithmatex">\(i\)</span>番目の牌の枚数を決めた後は<span class="arithmatex">\(4(8-i)\)</span>枚が未使用になっている. <span class="arithmatex">\(m\)</span>がこの値より大きいときはその差を最小値とする必要がある. よって<span class="arithmatex">\(h^n_i\)</span>の最小値は<span class="arithmatex">\({\rm max}(0, m-4(8-i))\)</span>である. <span class="arithmatex">\(h^n_{i+1}\)</span>については<span class="arithmatex">\(m\)</span>を<span class="arithmatex">\(m-h^n_i\)</span>に置き換えて同様に考えればよい. この処理を再帰関数で実装する.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -451,7 +451,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_3">乱択</h2>
+<h2 id="_3">乱択<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(M\)</span>枚の牌からなる手牌をランダムに<span class="arithmatex">\(N\)</span>個生成する. これは<a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A3%E3%83%BC%E2%80%93%E3%82%A4%E3%82%A7%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB">Fisher-Yates法</a>を用いて実現できる. ここでは136枚の牌を区別して手牌を構成する牌の番号を出力する.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2

@@ -333,7 +333,7 @@
 
   <li class="md-nav__item">
     <a href="../permutation/" class="md-nav__link">
-      B. 置換定理
+      B. 置換定理と唯一性の定理
     </a>
   </li>
 
@@ -407,8 +407,8 @@
               
                 
                 
-                <h1 id="_1">連立集合漸化式</h1>
-<h2 id="_2">定義</h2>
+                <h1 id="_1">連立集合漸化式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(H^n\)</span>の要素のうち, <span class="arithmatex">\(m\)</span>面子に分解できるものの集合を<span class="arithmatex">\(A^n_m\)</span>, <span class="arithmatex">\(m\)</span>面子一雀頭に分解できるものの集合を<span class="arithmatex">\(B^n_m\)</span>とする.</p>
 <table>
 <thead>
@@ -438,7 +438,7 @@ B^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup
 \right. \\
 \]</div>
 <p>連立集合漸化式は数どうしの演算についての通常の漸化式と異なり, 集合どうしの演算についての漸化式である. これを解こうとすると集合をどのようなデータ構造で表現するかなどの疑問が生じるが, 実際にこれを解くことはまずなく大抵は通常の漸化式に帰着させる. なお, 連立集合漸化式から導かれたアルゴリズムは動的計画法の考え方を用いているといえる.</p>
-<h2 id="_3">和了形の数</h2>
+<h2 id="_3">和了形の数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>連立集合漸化式の最も簡単な応用例は和了形の数を得ることである. <span class="arithmatex">\(3N+2\)</span>和了形の数<span class="arithmatex">\(|B^{(3)}_m|\)</span>は以下の連立漸化式の解として得られる. これは天和の確率を計算することに利用できる.</p>
 <div class="arithmatex">\[
 \left\{
@@ -448,7 +448,7 @@ B^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup
 \end{aligned}
 \right. \\
 \]</div>
-<h2 id="_4">向聴数</h2>
+<h2 id="_4">向聴数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ここでは向聴数を「聴牌するために必要な牌の枚数の最小値」と定義する. 聴牌を基準とした向聴数は計算上不便なので, 「和了するために必要な牌の枚数の最小値」として置換数を導入する. 向聴数<span class="arithmatex">\(S(h)\)</span>と置換数<span class="arithmatex">\(T(h)\)</span>の関係は次式で表される.</p>
 <div class="arithmatex">\[
 S(h) = T(h) - 1
@@ -482,7 +482,7 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 \right.
 \]</div>
 <p>このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは<a href="https://github.com/tomohxx/shanten-number-calculator">shanten-number-calculator</a>を参照すること.</p>
-<h2 id="_5">有効牌/不要牌</h2>
+<h2 id="_5">有効牌/不要牌<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは<a href="https://github.com/tomohxx/necessary-and-unnecessary-tiles-calculator">necessary-and-unnecessary-tiles-calculator</a>を参照すること.</p>
                 
               
