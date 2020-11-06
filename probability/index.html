@@ -488,7 +488,7 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
   <figcaption>図1: 4枚形23m24pの変化</figcaption>
 </figure>
 
-<p>和了確率はこの木に含まれるそれぞれの経路で和了する確率の和となる. 経路の集合を<span class="arithmatex">\(L\)</span>とすると経路<span class="arithmatex">\(l \in L\)</span>に含まれる状態の存在確率は以下の連立漸化式で表せる.</p>
+<p>和了確率はこの木に含まれるそれぞれの葉ノードで和了する確率の和となる. 葉ノードの集合を<span class="arithmatex">\(L\)</span>とすると特定の<span class="arithmatex">\(l \in L\)</span>に到達するための途中の状態の存在確率は以下の連立漸化式で表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -499,7 +499,7 @@ p^{(l, d)}_{t+1} &amp;= \frac{b^{(l, d-1)}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t &
 \right.
 \tag{2}
 \]</div>
-<p>ここで, <span class="arithmatex">\(a^{(l, i)}\)</span>は経路<span class="arithmatex">\(l\)</span>の深さ<span class="arithmatex">\(i\)</span>の状態の有効牌の枚数, <span class="arithmatex">\(b^{(l, i)}\)</span>は経路<span class="arithmatex">\(l\)</span>の深さ<span class="arithmatex">\(i\)</span>の状態から同じ経路の深さ<span class="arithmatex">\(i+1\)</span>の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路<span class="arithmatex">\(OAB\)</span>では, <span class="arithmatex">\(a^{(OAB, 0)} = 14, b^{(OAB, 0)} = 4, a^{(OAB, 1)} = 6, b^{(OAB, 1)} = 3\)</span>となる. この例からわかるように<span class="arithmatex">\(a^{(l, i)} \ge b^{(l, i)}\)</span>となる. <span class="arithmatex">\(t\)</span>巡目で経路<span class="arithmatex">\(l\)</span>によって和了する確率は<span class="arithmatex">\(p^{(l, d)}_t\)</span>である.</p>
+<p>ここで, <span class="arithmatex">\(a^{(l, i)}\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態の有効牌の枚数, <span class="arithmatex">\(b^{(l, i)}\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態から深さ<span class="arithmatex">\(i+1\)</span>の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路<span class="arithmatex">\(0 \rightarrow 1 \rightarrow 2\)</span>では, <span class="arithmatex">\(a^{(2, 0)} = 14, b^{(2, 0)} = 4, a^{(2, 1)} = 6, b^{(2, 1)} = 3\)</span>となる. この例からわかるように<span class="arithmatex">\(a^{(l, i)} \ge b^{(l, i)}\)</span>となる. <span class="arithmatex">\(t\)</span>巡目に葉ノード<span class="arithmatex">\(l\)</span>で和了する確率は<span class="arithmatex">\(p^{(l, d)}_t\)</span>である.</p>
 <figure text-align="center">
   <img src="../img/tree-2.svg"/>
   <figcaption>図2: 手牌の変化の木</figcaption>
