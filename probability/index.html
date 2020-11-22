@@ -316,13 +316,6 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    唯一性の定理
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     ソースコード
   </a>
   
@@ -375,7 +368,7 @@
 
   <li class="md-nav__item">
     <a href="../permutation/" class="md-nav__link">
-      B. 置換定理と唯一性の定理
+      B. 置換定理
     </a>
   </li>
 
@@ -438,13 +431,6 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    唯一性の定理
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     ソースコード
   </a>
   
@@ -469,7 +455,7 @@
                 
                 <h1 id="_1">和了確率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">抽象的な手牌の和了確率<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ある手牌が与えられ, その向聴数と有効牌の枚数のみがわかっているとする. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a^{(0)}\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a^{(0)}, a^{(1)}, \ldots , a^{(d-1)}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立漸化式を考えれば和了確率を表せる.</p>
+<p>ある手牌が与えられ, その向聴数と有効牌の枚数のみがわかっているとする. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a^{(0)}\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a^{(0)}, a^{(1)}, \ldots , a^{(d-1)}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -488,7 +474,7 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
   <figcaption>図1: 4枚形23m24pの変化</figcaption>
 </figure>
 
-<p>和了確率はこの木に含まれるそれぞれの葉ノードで和了する確率の和となる. 葉ノードの集合を<span class="arithmatex">\(L\)</span>とすると特定の<span class="arithmatex">\(l \in L\)</span>に到達するための途中の状態の存在確率は以下の連立漸化式で表せる.</p>
+<p>和了確率はこの木に含まれるそれぞれの葉ノードで和了する確率の和となる. 葉ノードの集合を<span class="arithmatex">\(L\)</span>とすると特定の<span class="arithmatex">\(l \in L\)</span>に到達するための途中の状態の存在確率は以下の連立確率漸化式で表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -529,10 +515,11 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^{(l, j)}}{a^{(l, j)}}
 \end{aligned}
 \]</div>
 <h2 id="_5">置換定理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>(1)式のパラメータ<span class="arithmatex">\(a^{(i)}\)</span>の任意の置換によって得られる連立漸化式の解<span class="arithmatex">\(p^{(d)}_t\)</span>はすべて等しい. この証明は<a href="../permutation/">B. 置換定理と唯一性の定理</a>を参照すること.</p>
-<h2 id="_6">唯一性の定理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>(1)式の解<span class="arithmatex">\(p^{(d)}_t\)</span>が同一となる連立漸化式のパラメータ<span class="arithmatex">\(a^{(i)}\)</span>の組は置換を除いてただ一つに限る. この証明は<a href="../permutation/">B. 置換定理と唯一性の定理</a>を参照すること.</p>
-<h2 id="_7">ソースコード<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<dl>
+<dd>(1)式のパラメータ<span class="arithmatex">\(a^{(i)}\)</span>の任意の置換によって得られる連立確率漸化式の解<span class="arithmatex">\(p^{(d)}_t\)</span>はすべて等しい.</dd>
+</dl>
+<p>この証明は<a href="../permutation/">B. 置換定理</a>を参照すること.</p>
+<h2 id="_6">ソースコード<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
                 
               
               
