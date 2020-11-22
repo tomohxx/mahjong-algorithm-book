@@ -224,11 +224,11 @@ int main()
       States tmp_a, tmp_b;
 
       for(int l=0; l<=m; ++l){
-        tmp_b += dp_b[l]*a[n+1][m-l]+dp_a[l]*b[n+1][m-l];
         tmp_a += dp_a[l]*a[n+1][m-l];
+        tmp_b += dp_b[l]*a[n+1][m-l]+dp_a[l]*b[n+1][m-l];
       }
-      dp_b[m] = tmp_b;
       dp_a[m] = tmp_a;
+      dp_b[m] = tmp_b;
     }
   }
 
