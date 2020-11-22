@@ -64,10 +64,12 @@ $$
 ここで, 事前に以下の値がわかっているとする.
 
 $$
+\left\{
 \begin{aligned}
 u^n_m &= \min_{a \in A^n_m} d(a, h^n) \\
 t^n_m &= \min_{b \in B^n_m} d(b, h^n) \\
 \end{aligned}
+\right.
 $$
 
 このとき手牌$h$の置換数$T(h)$は以下の連立漸化式の解$t^{(3)}_m$に等しい.
