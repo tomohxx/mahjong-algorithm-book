@@ -23,7 +23,7 @@ $$
 
 <figure text-align="center">
   <img src="../img/tree-1.svg"/>
-  <figcaption>図1: 4枚形23m24pの変化</figcaption>
+  <figcaption>図1: 4枚形23m25pの変化</figcaption>
 </figure>
 
 和了確率はこの木に含まれるそれぞれの葉ノードで和了する確率の和となる. 葉ノードの集合を$L$とすると特定の$l \in L$に到達するための途中の状態の存在確率は以下の連立確率漸化式で表せる.
@@ -84,3 +84,113 @@ $$
 この証明は[B. 置換定理](permutation.md)を参照すること.
 
 ## ソースコード
+
+図2で示された手牌の変化の木の和了確率を計算する.
+
+入力:
+```
+ノード数 牌の枚数 巡目
+ノード番号 親ノード番号(根の場合は-1) 変化に必要な牌の枚数(根の場合は-1)
+```
+
+入力例:
+```
+11 123 17
+0 -1 -1
+1 0 4
+2 1 3
+3 0 4
+4 3 3
+5 0 3
+6 5 4
+7 5 4
+8 0 3
+9 8 4
+10 8 4
+```
+
+出力例:
+```
+0.323206
+```
+
+実装:
+```cpp
+#include <iostream>
+#include <vector>
+
+// 和了確率を計算する
+double prob(const std::vector<int>& a, const int s, const int d, const int t)
+{
+  static std::vector<std::vector<double>> value(128, std::vector<double>(128, 0.0));
+
+  value[0][0] = 1.0;
+
+  for(int k=0; k<t; ++k){
+    value[0][k+1] = (1-1.0*a[0]/(s-k))*value[0][k];
+
+    for(int j=1; j<d; ++j){
+      value[j][k+1] = (1-1.0*a[j]/(s-k))*value[j][k]+1.0*a[j-1]/(s-k)*value[j-1][k];
+    }
+    value[d][k+1] = 1.0*a[d-1]/(s-k)*value[d-1][k]+value[d][k];
+  }
+  return value[d][t];
+}
+
+// ノードを管理するクラス
+struct Node{
+  // 親ノード
+  Node* parent = nullptr;
+  // 変化に必要な牌の枚数
+  int value = -1;
+  // 有効牌の枚数
+  int effective = 0;
+};
+
+int main()
+{
+  // ノード数, 牌の枚数, 巡目
+  int N, S, T;
+
+  std::cin >> N >> S >> T;
+
+  std::vector<Node> nodes(N);
+
+  for(int i=0; i<N; ++i){
+    int self, parent, value;
+
+    std::cin >> self >> parent >> value;
+
+    if(parent != -1){
+      nodes[self].parent = &nodes[parent];
+      nodes[self].value = value;
+      nodes[self].parent->effective += value;
+    }
+  }
+
+  double res = 0.0;
+
+  // 葉を見つけて和了確率を計算する
+  for(int i=0; i<N; ++i){
+    if(nodes[i].effective == 0){
+      std::vector<int> a;
+
+      Node* ptr = nodes[i].parent;
+      double coeff = 1.0;
+
+      // 根まで辿る
+      for(Node* ptr=&nodes[i]; ptr->parent!=nullptr; ptr=ptr->parent){
+        a.push_back(ptr->parent->effective);
+        coeff *= static_cast<double>(ptr->value)/ptr->parent->effective;
+      }
+
+      // 和了確率を計算する(パラメータ変換と置換定理を利用)
+      res += prob(a, S, a.size(), T)*coeff;
+    }
+  }
+
+  std::cout << res << std::endl;
+
+  return 0;
+}
+```
