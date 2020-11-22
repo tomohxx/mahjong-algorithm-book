@@ -15,7 +15,7 @@ $$
 \left\{
 \begin{aligned}
 A^{(n+1)}_m &= \bigcup^{m}_{l=0} \left\{ A^{(n)}_l \times A^{n+1}_{m-l} \right\} & A^{(0)}_m &= A^0_m \\
-B^{(n+1)}_m &= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup A^{(n)}_l \times B^{n+1}_m \right\} & B^{(0)}_m &= B^0_m
+B^{(n+1)}_m &= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup A^{(n)}_l \times B^{n+1}_{m-l} \right\} & B^{(0)}_m &= B^0_m
 \end{aligned}
 \right. \\
 $$
@@ -30,7 +30,7 @@ $$
 \left\{
 \begin{aligned}
 |A^{(n+1)}_m| &= \sum^{m}_{l=0} \left\{ |A^{(n)}_l| \times |A^{n+1}_{m-l}| \right\} & |A^{(0)}_m| &= |A^0_m| \\
-|B^{(n+1)}_m| &= \sum^{m}_{l=0} \left\{ |B^{(n)}_l| \times |A^{n+1}_{m-l}| + |A^{(n)}_l| \times |B^{n+1}_m| \right\} & |B^{(0)}_m| &= |B^0_m|
+|B^{(n+1)}_m| &= \sum^{m}_{l=0} \left\{ |B^{(n)}_l| \times |A^{n+1}_{m-l}| + |A^{(n)}_l| \times |B^{n+1}_{m-l}| \right\} & |B^{(0)}_m| &= |B^0_m|
 \end{aligned}
 \right. \\
 $$
@@ -78,7 +78,7 @@ $$
 \left\{
 \begin{aligned}
 u^{(n+1)}_m &= \min_{0 \le l \le m} \left\{ u^{(n)}_l + u^{n+1}_{m-l} \right\} & u^{(0)}_m &= u^0_m \\
-t^{(n+1)}_m &= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l} , u^{(n)}_l + t^{n+1}_m \} \right\} & t^{(0)}_m &= t^0_m
+t^{(n+1)}_m &= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l} , u^{(n)}_l + t^{n+1}_{m-l} \} \right\} & t^{(0)}_m &= t^0_m
 \end{aligned}
 \right.
 $$
