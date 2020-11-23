@@ -482,8 +482,10 @@
                 <h1 id="_1">固有形<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <dl>
+<dt><strong>除去可能面子</strong></dt>
+<dd><span class="arithmatex">\(3N+1\)</span>(または<span class="arithmatex">\(3N+2\)</span>)聴牌形<span class="arithmatex">\(h \in H\)</span>に対して, その面子を除いても聴牌を維持するものを除去可能面子と定義する.</dd>
 <dt><strong>固定面子</strong></dt>
-<dd><span class="arithmatex">\(3N+1\)</span>(または<span class="arithmatex">\(3N+2\)</span>)聴牌形<span class="arithmatex">\(h \in H\)</span>に対して, その面子を除いても聴牌形を維持し待ちを不変に保つならばこれを固定面子という. </dd>
+<dd>除去可能面子のうち, 待ちを不変に保つものを固定面子と定義する. </dd>
 </dl>
 <p>固定面子を用いて以下の3種類の固有形を定義する.</p>
 <dl>
@@ -502,6 +504,7 @@
 <li>上記以外(<strong>一体型</strong>)</li>
 </ul>
 <h2 id="_4">ソースコード<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>固定面子の取り扱いには注意が必要である. 除去可能面子を除いた後の手牌の待ちを<span class="arithmatex">\(W'\)</span>, 元の手牌の待ちを<span class="arithmatex">\(W\)</span>とすると基本的には<span class="arithmatex">\(W' \subseteq{W}\)</span>となる. しかし, 2222345のような4枚使いが含まれる手牌の場合, 除去可能面子222を除くと2が待ちに含まれるようになるから<span class="arithmatex">\(W' \supset{W}\)</span>となり得る. そこで<span class="arithmatex">\(W' = W\)</span>となる除去可能面子を固定面子とするのではなく<span class="arithmatex">\(W' \supseteq{W}\)</span>となる除去可能面子を固定面子とみなす. 5枚目の牌を待ちに含めるのであれば<span class="arithmatex">\(W' \supset{W}\)</span>となることはなく2222345は固有形にはならない. 5枚目の牌を待ちに含める場合においても2222345のような手牌を固有形としないようにするため上記定義の修正を行った.</p>
 <h3 id="3n1">3N+1聴牌固有形判定<a class="headerlink" href="#3n1" title="Permanent link">&para;</a></h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
