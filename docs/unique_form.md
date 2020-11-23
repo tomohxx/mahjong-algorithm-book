@@ -34,7 +34,7 @@ bool isuf1(int* h)
   auto wait = isrh1(h);
 
   for(int i=0; i<9; ++i){
-    if(h[i]>=3){
+    if(h[i] >= 3){
       h[i] -= 3;
       auto tmp = isrh1(h);
       h[i] += 3;
@@ -45,7 +45,7 @@ bool isuf1(int* h)
     }
   }
   for(int i=0; i<7; ++i){
-    if(h[i]>=1 && h[i+1]>=1 && h[i+2]>=1){
+    if(h[i] >= 1 && h[i+1] >= 1 && h[i+2] >= 1){
       --h[i]; --h[i+1]; --h[i+2];
       auto tmp = isrh1(h);
       ++h[i]; ++h[i+1]; ++h[i+2];
