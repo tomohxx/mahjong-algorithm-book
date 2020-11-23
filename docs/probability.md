@@ -175,7 +175,6 @@ int main()
     if(nodes[i].effective == 0){
       std::vector<int> a;
 
-      Node* ptr = nodes[i].parent;
       double coeff = 1.0;
 
       // 根まで辿る
