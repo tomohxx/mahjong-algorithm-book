@@ -107,13 +107,13 @@ int isrh2(int* h)
   }
 
   for(int x=s*2%3; x<9; x+=3){
-    if(h[i] < 4){
-      ++h[i];
+    if(h[x] < 4){
+      ++h[x];
 
       if(iswh0(h)){
-        wait ^= 1<<i;
+        wait ^= 1<<x;
       }
-      --h[i];
+      --h[x];
     }
   }
   return wait;
