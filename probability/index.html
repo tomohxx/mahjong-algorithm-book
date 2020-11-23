@@ -633,8 +633,7 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^{(l, j)}}{a^{(l, j)}}
 73
 74
 75
-76
-77</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+76</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
 <span class="c1">// 和了確率を計算する</span>
@@ -693,7 +692,6 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^{(l, j)}}{a^{(l, j)}}
     <span class="k">if</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">effective</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
       <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
 
-      <span class="n">Node</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">parent</span><span class="p">;</span>
       <span class="kt">double</span> <span class="n">coeff</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
 
       <span class="c1">// 根まで辿る</span>
