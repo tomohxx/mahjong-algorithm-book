@@ -127,7 +127,9 @@ int isrh1(int* h)
 {
   int s = 0, wait = 0;
 
-  for(int i=0; i<9; ++i) s += i*h[i];
+  for(int i=0; i<9; ++i){
+    s += i*h[i];
+  }
 
   for(int x=0; x<9; ++x){
     if(h[x] < 4){
