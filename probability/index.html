@@ -288,14 +288,14 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    抽象的な手牌の和了確率
+    有効牌の枚数の変化に分岐がない場合
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    具体的な手牌の和了確率
+    有効牌の枚数の変化に分岐がある場合
   </a>
   
 </li>
@@ -403,14 +403,14 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    抽象的な手牌の和了確率
+    有効牌の枚数の変化に分岐がない場合
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    具体的な手牌の和了確率
+    有効牌の枚数の変化に分岐がある場合
   </a>
   
 </li>
@@ -454,8 +454,8 @@
                 
                 
                 <h1 id="_1">和了確率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">抽象的な手牌の和了確率<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ある手牌が与えられ, その向聴数と有効牌の枚数のみがわかっているとする. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a^{(0)}\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a^{(0)}, a^{(1)}, \ldots , a^{(d-1)}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
+<h2 id="_2">有効牌の枚数の変化に分岐がない場合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が1通りであるとする. ここで和了形は1通りでなくてもよい. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a^{(0)}\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a^{(0)}, a^{(1)}, \ldots , a^{(d-1)}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -467,8 +467,8 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
 \tag{1}
 \]</div>
 <p>ここで, <span class="arithmatex">\(t\)</span>は巡目, <span class="arithmatex">\(S\)</span>は0巡目での牌の総数を表す. <span class="arithmatex">\(t\)</span>巡目における和了確率は<span class="arithmatex">\(p^{(d)}_t\)</span>である.</p>
-<h2 id="_3">具体的な手牌の和了確率<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>具体的な手牌の和了確率を考える場合, 有効牌の枚数の変化は1通りではなく引いた牌に応じて分岐する. なお, 有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.</p>
+<h2 id="_3">有効牌の枚数の変化に分岐がある場合<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>有効牌の枚数の変化が1通りではなく引いた牌に応じて分岐する場合を考える. なお有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.</p>
 <figure text-align="center">
   <img src="../img/tree-1.svg"/>
   <figcaption>図1: 4枚形23m25pの変化</figcaption>
