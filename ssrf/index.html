@@ -495,14 +495,14 @@ d(g^n, h^n) = \frac{1}{2} \sum_{i} (|g^n_i - h^n_i| + g^n_i - h^n_i)
 \]</div>
 <p>と表せる. 距離を用いて手牌<span class="arithmatex">\(h\)</span>の置換数を以下のように定義する.</p>
 <div class="arithmatex">\[
-T(h) = \min_{b \in B^{(3)}_m} \sum_{n=0}^{3} d(b, h^n)
+T(h) = \min_{b \in B^{(3)}_m} \sum_{n=0}^{3} d(b^n, h^n)
 \]</div>
 <p>ここで, 事前に以下の値がわかっているとする.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-u^n_m &amp;= \min_{a \in A^n_m} d(a, h^n) \\
-t^n_m &amp;= \min_{b \in B^n_m} d(b, h^n) \\
+u^n_m &amp;= \min_{a \in A^n_m} d(a^n, h^n) \\
+t^n_m &amp;= \min_{b \in B^n_m} d(b^n, h^n) \\
 \end{aligned}
 \right.
 \]</div>
@@ -515,9 +515,9 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 \end{aligned}
 \right.
 \]</div>
-<p>このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは<a href="https://github.com/tomohxx/shanten-number-calculator">shanten-number-calculator</a>を参照すること.</p>
+<p>このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは<a href="https://github.com/tomohxx/shanten-number">shanten-number</a>を参照すること.</p>
 <h2 id="_5">有効牌/不要牌<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは<a href="https://github.com/tomohxx/necessary-and-unnecessary-tiles-calculator">necessary-and-unnecessary-tiles-calculator</a>を参照すること.</p>
+<p>置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは<a href="https://github.com/tomohxx/necessary-or-unnecessary-tiles">necessary-or-unnecessary-tiles</a>を参照すること.</p>
                 
               
               
