@@ -58,7 +58,7 @@ $$
 と表せる. 距離を用いて手牌$h$の置換数を以下のように定義する.
 
 $$
-T(h) = \min_{b \in B^{(3)}_m} \sum_{n=0}^{3} d(b, h^n)
+T(h) = \min_{b \in B^{(3)}_m} \sum_{n=0}^{3} d(b^n, h^n)
 $$
 
 ここで, 事前に以下の値がわかっているとする.
@@ -66,8 +66,8 @@ $$
 $$
 \left\{
 \begin{aligned}
-u^n_m &= \min_{a \in A^n_m} d(a, h^n) \\
-t^n_m &= \min_{b \in B^n_m} d(b, h^n) \\
+u^n_m &= \min_{a \in A^n_m} d(a^n, h^n) \\
+t^n_m &= \min_{b \in B^n_m} d(b^n, h^n) \\
 \end{aligned}
 \right.
 $$
@@ -83,8 +83,8 @@ t^{(n+1)}_m &= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l} , u
 \right.
 $$
 
-このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは[shanten-number-calculator](https://github.com/tomohxx/shanten-number-calculator)を参照すること.
+このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは[shanten-number](https://github.com/tomohxx/shanten-number)を参照すること.
 
 ## 有効牌/不要牌
 
-置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは[necessary-and-unnecessary-tiles-calculator](https://github.com/tomohxx/necessary-and-unnecessary-tiles-calculator)を参照すること.
+置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは[necessary-or-unnecessary-tiles](https://github.com/tomohxx/necessary-or-unnecessary-tiles)を参照すること.
