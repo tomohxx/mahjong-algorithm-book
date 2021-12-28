@@ -455,13 +455,13 @@
                 
                 <h1 id="_1">和了確率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">有効牌の枚数の変化に分岐がない場合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が1通りであるとする. ここで和了形は1通りでなくてもよい. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a^{(0)}\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a^{(0)}, a^{(1)}, \ldots , a^{(d-1)}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
+<p>ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が1通りであるとする. ここで和了形は1通りでなくてもよい. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a_0\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a_0, a_1, \ldots , a_{d-1}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-p^{(0)}_{t+1} &amp;= \left( 1- \frac{a^{(0)}}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
-p^{(i)}_{t+1} &amp;= \left( 1- \frac{a^{(i)}}{S-t} \right) p^{(i)}_t + \frac{a^{(i-1)}}{S-t} p^{(i-1)}_t &amp; p^{(i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
-p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d)}_0 &amp;= 0
+p^{(0)}_{t+1} &amp;= \left( 1- \frac{a_0}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
+p^{(i)}_{t+1} &amp;= \left( 1- \frac{a_i}{S-t} \right) p^{(i)}_t + \frac{a_{i-1}}{S-t} p^{(i-1)}_t &amp; p^{(i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
+p^{(d)}_{t+1} &amp;= \frac{a_{d-1}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d)}_0 &amp;= 0
 \end{aligned}
 \right.
 \tag{1}
@@ -478,14 +478,14 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-p^{(l, 0)}_{t+1} &amp;= \left( 1-\frac{a^{(l, 0)}}{S-t} \right) p^{(l, 0)}_t  &amp; p^{(l, 0)}_0 &amp;= 1 \\
-p^{(l, i)}_{t+1} &amp;= \left( 1-\frac{a^{(l, i)}}{S-t} \right) p^{(l, i)}_t + \frac{b^{(l, i-1)}}{S-t} p^{(l, i-1)}_t &amp; p^{(l, i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
-p^{(l, d)}_{t+1} &amp;= \frac{b^{(l, d-1)}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t &amp; p^{(l, d)}_0 &amp;= 0
+p^{(l, 0)}_{t+1} &amp;= \left( 1-\frac{a^l_0}{S-t} \right) p^{(l, 0)}_t  &amp; p^{(l, 0)}_0 &amp;= 1 \\
+p^{(l, i)}_{t+1} &amp;= \left( 1-\frac{a^l_i}{S-t} \right) p^{(l, i)}_t + \frac{b^l_{i-1}}{S-t} p^{(l, i-1)}_t &amp; p^{(l, i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
+p^{(l, d)}_{t+1} &amp;= \frac{b^l_{d-1}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t &amp; p^{(l, d)}_0 &amp;= 0
 \end{aligned}
 \right.
 \tag{2}
 \]</div>
-<p>ここで, <span class="arithmatex">\(a^{(l, i)}\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態の有効牌の枚数, <span class="arithmatex">\(b^{(l, i)}\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態から深さ<span class="arithmatex">\(i+1\)</span>の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路<span class="arithmatex">\(0 \rightarrow 1 \rightarrow 2\)</span>では, <span class="arithmatex">\(a^{(2, 0)} = 14, b^{(2, 0)} = 4, a^{(2, 1)} = 6, b^{(2, 1)} = 3\)</span>となる. この例からわかるように<span class="arithmatex">\(a^{(l, i)} \ge b^{(l, i)}\)</span>となる. <span class="arithmatex">\(t\)</span>巡目に葉ノード<span class="arithmatex">\(l\)</span>で和了する確率は<span class="arithmatex">\(p^{(l, d)}_t\)</span>である.</p>
+<p>ここで, <span class="arithmatex">\(a^l_i\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態の有効牌の枚数, <span class="arithmatex">\(b^l_i\)</span>は深さ<span class="arithmatex">\(i\)</span>の状態から深さ<span class="arithmatex">\(i+1\)</span>の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路<span class="arithmatex">\(0 \rightarrow 1 \rightarrow 2\)</span>では, <span class="arithmatex">\(a^2_0 = 14, b^2_0 = 4, a^2_1 = 3, b^2_1 = 3\)</span>となる. この例からわかるように<span class="arithmatex">\(a^l_i \ge b^l_i\)</span>となる. <span class="arithmatex">\(t\)</span>巡目に葉ノード<span class="arithmatex">\(l\)</span>で和了する確率は<span class="arithmatex">\(p^{(l, d)}_t\)</span>である.</p>
 <figure text-align="center">
   <img src="../img/tree-2.svg"/>
   <figcaption>図2: 手牌の変化の木</figcaption>
@@ -497,13 +497,13 @@ P_t = \sum_{l \in L} p^{(l, d)}_t
 \]</div>
 <p>となる. </p>
 <h2 id="_4">パラメータ変換<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>(2)式の<span class="arithmatex">\(b^{(l, i)}\)</span>を<span class="arithmatex">\(a^{(l, i)}\)</span>で置き換えると, 形式的に(2)式を(1)式に変形できる.</p>
+<p>(2)式の<span class="arithmatex">\(b^l_i\)</span>を<span class="arithmatex">\(a^l_i\)</span>で置き換えると, 形式的に(2)式を(1)式に変形できる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-q^{(l, 0)}_{t+1} &amp;= \left( 1-\frac{a^{(l, 0)}}{S-t} \right) q^{(l, 0)}_t  &amp; q^{(l, 0)}_0 &amp;= 1 \\
-q^{(l, i)}_{t+1} &amp;= \left( 1-\frac{a^{(l, i)}}{S-t} \right) q^{(l, i)}_t + \frac{a^{(l, i-1)}}{S-t} q^{(l, i-1)}_t &amp; q^{(l, i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
-q^{(l, d)}_{t+1} &amp;= \frac{a^{(l, d-1)}}{S-t} q^{(l, d-1)}_t + q^{(l, d)}_t &amp; q^{(l, d)}_0 &amp;= 0
+q^{(l, 0)}_{t+1} &amp;= \left( 1-\frac{a^l_0}{S-t} \right) q^{(l, 0)}_t  &amp; q^{(l, 0)}_0 &amp;= 1 \\
+q^{(l, i)}_{t+1} &amp;= \left( 1-\frac{a^l_i}{S-t} \right) q^{(l, i)}_t + \frac{a^l_{i-1}}{S-t} q^{(l, i-1)}_t &amp; q^{(l, i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
+q^{(l, d)}_{t+1} &amp;= \frac{a^l_{d-1}}{S-t} q^{(l, d-1)}_t + q^{(l, d)}_t &amp; q^{(l, d)}_0 &amp;= 0
 \end{aligned}
 \right.
 \tag{3}
@@ -511,7 +511,7 @@ q^{(l, d)}_{t+1} &amp;= \frac{a^{(l, d-1)}}{S-t} q^{(l, d-1)}_t + q^{(l, d)}_t &
 <p>(2)式の<span class="arithmatex">\(p^{(l, i)}_{t}\)</span>と(3)式の<span class="arithmatex">\(q^{(l, i)}_{t}\)</span>には以下の関係が成り立つ.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^{(l, j)}}{a^{(l, j)}} &amp; (0 &lt; i \le d)
+p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^l_j}{a^l_j} &amp; (0 &lt; i \le d)
 \end{aligned}
 \]</div>
 <h2 id="_5">置換定理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

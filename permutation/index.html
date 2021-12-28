@@ -357,14 +357,14 @@
                 
                 <h1 id="_1">置換定理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <dl>
-<dd>(1)式のパラメータ<span class="arithmatex">\(a^{(i)}\)</span>の任意の置換によって得られる連立確率漸化式の解<span class="arithmatex">\(p^{(d)}_t\)</span>はすべて等しい.</dd>
+<dd>(1)式のパラメータ<span class="arithmatex">\(a_i\)</span>の任意の置換によって得られる連立確率漸化式の解<span class="arithmatex">\(p^{(d)}_t\)</span>はすべて等しい.</dd>
 </dl>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-p^{(0)}_{t+1} &amp;= \left( 1- \frac{a^{(0)}}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
-p^{(i)}_{t+1} &amp;= \left( 1- \frac{a^{(i)}}{S-t} \right) p^{(i)}_t + \frac{a^{(i-1)}}{S-t} p^{(i-1)}_t &amp; p^{(i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
-p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d)}_0 &amp;= 0
+p^{(0)}_{t+1} &amp;= \left( 1- \frac{a_0}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
+p^{(i)}_{t+1} &amp;= \left( 1- \frac{a_i}{S-t} \right) p^{(i)}_t + \frac{a_{i-1}}{S-t} p^{(i-1)}_t &amp; p^{(i)}_0 &amp;= 0 &amp; (0 \le i &lt; d) \\
+p^{(d)}_{t+1} &amp;= \frac{a_{d-1}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d)}_0 &amp;= 0
 \end{aligned}
 \right.
 \tag{1}
@@ -374,9 +374,9 @@ p^{(d)}_{t+1} &amp;= \frac{a^{(d-1)}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-p^{(0)}_{t+1} &amp;= \left( 1- \frac{a^{(0)}}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
-p^{(1)}_{t+1} &amp;= \left( 1- \frac{a^{(1)}}{S-t} \right) p^{(1)}_t + \frac{a^{(0)}}{S-t} p^{(0)}_t &amp; p^{(1)}_0 &amp;= 0 \\
-p^{(2)}_{t+1} &amp;= \frac{a^{(1)}}{S-t} p^{(1)}_t + p^{(2)}_{t} &amp; p^{(2)}_0 &amp;= 0
+p^{(0)}_{t+1} &amp;= \left( 1- \frac{a_0}{S-t} \right) p^{(0)}_t &amp; p^{(0)}_0 &amp;= 1 \\
+p^{(1)}_{t+1} &amp;= \left( 1- \frac{a_1}{S-t} \right) p^{(1)}_t + \frac{a_0}{S-t} p^{(0)}_t &amp; p^{(1)}_0 &amp;= 0 \\
+p^{(2)}_{t+1} &amp;= \frac{a_1}{S-t} p^{(1)}_t + p^{(2)}_{t} &amp; p^{(2)}_0 &amp;= 0
 \end{aligned}
 \right.
 \tag{2}
@@ -385,8 +385,8 @@ p^{(2)}_{t+1} &amp;= \frac{a^{(1)}}{S-t} p^{(1)}_t + p^{(2)}_{t} &amp; p^{(2)}_0
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-q^{(0)}_t &amp;= \frac{a^{(0)}a^{(1)}}{(S-t)(S-t-1)}p^{(0)}_t \\
-q^{(1)}_t &amp;= \frac{a^{(1)}}{S-t}p^{(1)}_t \\
+q^{(0)}_t &amp;= \frac{a_0 a_1}{(S-t)(S-t-1)}p^{(0)}_t \\
+q^{(1)}_t &amp;= \frac{a_1}{S-t}p^{(1)}_t \\
 \end{aligned}
 \right.
 \]</div>
@@ -394,8 +394,8 @@ q^{(1)}_t &amp;= \frac{a^{(1)}}{S-t}p^{(1)}_t \\
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-q^{(0)}_{t+1} &amp;= \frac{S-t-a^{(0)}}{S-t-2}q^{(0)}_t &amp; q^{(0)}_0 &amp;= \frac{a^{(0)}a^{(1)}}{S(S-1)} \\
-q^{(1)}_{t+1} &amp;= \frac{S-t-a^{(1)}}{S-t-1}q^{(1)}_t + q^{(0)}_t &amp; q^{(1)}_0 &amp;= 0 \\
+q^{(0)}_{t+1} &amp;= \frac{S-t-a_0}{S-t-2}q^{(0)}_t &amp; q^{(0)}_0 &amp;= \frac{a_0 a_1}{S(S-1)} \\
+q^{(1)}_{t+1} &amp;= \frac{S-t-a_1}{S-t-1}q^{(1)}_t + q^{(0)}_t &amp; q^{(1)}_0 &amp;= 0 \\
 p^{(2)}_{t+1} &amp;= q^{(1)}_t + p^{(2)}_t &amp; p^{(2)}_0 &amp;= 0
 \end{aligned}
 \right.
@@ -403,16 +403,16 @@ p^{(2)}_{t+1} &amp;= q^{(1)}_t + p^{(2)}_t &amp; p^{(2)}_0 &amp;= 0
 \]</div>
 <p>これを<span class="arithmatex">\(q^{(1)}_t\)</span>について解くと,</p>
 <div class="arithmatex">\[
-q^{(1)}_{t+2} - \frac{(S-t-a^{(0)})+(S-t-a^{(1)})-1}{S-t-2}q^{(1)}_{t+1} + \frac{(S-t-a^{(0)})(S-t-a^{(1)})}{(S-t-1)(S-t-2)}q^{(1)}_t = 0
+q^{(1)}_{t+2} - \frac{(S-t-a_0)+(S-t-a_1)-1}{S-t-2}q^{(1)}_{t+1} + \frac{(S-t-a_0)(S-t-a_1)}{(S-t-1)(S-t-2)}q^{(1)}_t = 0
 \tag{4}
 \]</div>
-<p>が得られる. (4)式は<span class="arithmatex">\(q^{(1)}_t\)</span>についての漸化式であると同時に<span class="arithmatex">\(a^{(0)}, a^{(1)}\)</span>の対称式になっている. <span class="arithmatex">\(q^{(1)}_0, q^{(1)}_1\)</span>も<span class="arithmatex">\(a^{(0)}, a^{(1)}\)</span>の対称式であるから, すべての<span class="arithmatex">\(t\)</span>について<span class="arithmatex">\(q^{(1)}_t\)</span>および<span class="arithmatex">\(p^{(2)}_t\)</span>は<span class="arithmatex">\(a^{(0)}, a^{(1)}\)</span>の対称式となる. よって<span class="arithmatex">\(d = 2\)</span>のとき題意は成り立つ.</p>
-<p><span class="arithmatex">\(d = k \ (k \ge 2)\)</span>のとき題意が成り立つと仮定し, <span class="arithmatex">\(d = k+1\)</span>のときを議論する. まず<span class="arithmatex">\(p^{(k+1)}_t\)</span>が<span class="arithmatex">\(a^{(k)}, a^{(k-1)}\)</span>についての対称式となることを示す. 以下の変数を導入する.</p>
+<p>が得られる. (4)式は<span class="arithmatex">\(q^{(1)}_t\)</span>についての漸化式であると同時に<span class="arithmatex">\(a_0, a_1\)</span>の対称式になっている. <span class="arithmatex">\(q^{(1)}_0, q^{(1)}_1\)</span>も<span class="arithmatex">\(a_0, a_1\)</span>の対称式であるから, すべての<span class="arithmatex">\(t\)</span>について<span class="arithmatex">\(q^{(1)}_t\)</span>および<span class="arithmatex">\(p^{(2)}_t\)</span>は<span class="arithmatex">\(a_0, a_1\)</span>の対称式となる. よって<span class="arithmatex">\(d = 2\)</span>のとき題意は成り立つ.</p>
+<p><span class="arithmatex">\(d = k \ (k \ge 2)\)</span>のとき題意が成り立つと仮定し, <span class="arithmatex">\(d = k+1\)</span>のときを議論する. まず<span class="arithmatex">\(p^{(k+1)}_t\)</span>が<span class="arithmatex">\(a_k, a_{k-1}\)</span>についての対称式となることを示す. 以下の変数を導入する.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-q^{(k-1)}_t &amp;= \frac{a^{(k-1)}a^{(k)}}{(S-t)(S-t-1)}p^{(k-1)}_t \\
-q^{(k)}_t &amp;= \frac{a^{(k)}}{S-t}p^{(k)}_t \\
+q^{(k-1)}_t &amp;= \frac{a_{k-1} a_k}{(S-t)(S-t-1)}p^{(k-1)}_t \\
+q^{(k)}_t &amp;= \frac{a_k}{S-t}p^{(k)}_t \\
 \end{aligned}
 \right.
 \]</div>
@@ -420,8 +420,8 @@ q^{(k)}_t &amp;= \frac{a^{(k)}}{S-t}p^{(k)}_t \\
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
-q^{(k-1)}_{t+1} &amp;= \frac{S-t-a^{(k-1)}}{S-t-2}q^{(k-1)}_t + \frac{a^{(k-2)}a^{(k-1)}a^{(k)}}{(S-t)(S-t-1)(S-t-2)}p^{(k-2)}_t &amp; q^{(k-1)}_0 &amp;= \frac{a^{(k-1)}a^{(k)}}{S(S-1)} \\
-q^{(k)}_{t+1} &amp;= \frac{S-t-a^{(k)}}{S-t-1}q^{(k)}_t + q^{(k-1)}_t &amp; q^{(k)}_0 &amp;= 0 \\
+q^{(k-1)}_{t+1} &amp;= \frac{S-t-a_{k-1}}{S-t-2}q^{(k-1)}_t + \frac{a_{k-2} a_{k-1} a_k}{(S-t)(S-t-1)(S-t-2)}p^{(k-2)}_t &amp; q^{(k-1)}_0 &amp;= \frac{a_{k-1} a_k}{S(S-1)} \\
+q^{(k)}_{t+1} &amp;= \frac{S-t-a_k}{S-t-1}q^{(k)}_t + q^{(k-1)}_t &amp; q^{(k)}_0 &amp;= 0 \\
 p^{(k+1)}_{t+1} &amp;= q^{(k)}_t + p^{(k+1)}_t &amp; p^{(k+1)}_0 &amp;= 0
 \end{aligned}
 \right.
@@ -429,12 +429,12 @@ p^{(k+1)}_{t+1} &amp;= q^{(k)}_t + p^{(k+1)}_t &amp; p^{(k+1)}_0 &amp;= 0
 \]</div>
 <p>これを<span class="arithmatex">\(q^{(k)}_t\)</span>について解くと,</p>
 <div class="arithmatex">\[
-q^{(k)}_{t+2} - \frac{(S-t-a^{(k-1)})+(S-t-a^{(k)})-1}{S-t-2}q^{(k)}_{t+1} + \frac{(S-t-a^{(k-1)})(S-t-a^{(k)})}{(S-t-1)(S-t-2)}q^{(k)}_t - \frac{a^{(k-2)}a^{(k-1)}a^{(k)}}{(S-t)(S-t-1)(S-t-2)}p^{(k-2)}_t = 0
+q^{(k)}_{t+2} - \frac{(S-t-a_{k-1})+(S-t-a_k)-1}{S-t-2}q^{(k)}_{t+1} + \frac{(S-t-a_{k-1})(S-t-a_k)}{(S-t-1)(S-t-2)}q^{(k)}_t - \frac{a_{k-2} a_{k-1} a_{k}}{(S-t)(S-t-1)(S-t-2)}p^{(k-2)}_t = 0
 \tag{6}
 \]</div>
-<p>が得られる. <span class="arithmatex">\(p^{(k-2)}_t\)</span>は<span class="arithmatex">\(a^{(k-1)}, a^{(k)}\)</span>には依存しないから(6)式は<span class="arithmatex">\(a^{(k)}, a^{(k-1)}\)</span>についての対称式である. <span class="arithmatex">\(q^{(k)}_0, q^{(k)}_1\)</span>も<span class="arithmatex">\(a^{(k-1)}, a^{(k)}\)</span>の対称式であるから, すべての<span class="arithmatex">\(t\)</span>について<span class="arithmatex">\(q^{(k)}_t\)</span>および<span class="arithmatex">\(p^{(k+1)}_t\)</span>は<span class="arithmatex">\(a^{(k-1)}, a^{(k)}\)</span>の対称式となる.</p>
-<p>次に<span class="arithmatex">\(a^{(i)} \ (0 \le i \le k)\)</span>の任意の置換について議論する. <span class="arithmatex">\(a^{(k-1)}, a^{(k)}\)</span>の置換と<span class="arithmatex">\(a^{(i)} \ (0 \le i \le k-1)\)</span>の置換を組み合わせることで<span class="arithmatex">\(a^{(i)} \ (0 \le i \le k)\)</span>の任意の置換を生成することができる. 加えて, <span class="arithmatex">\(a^{(k-1)}, a^{(k)}\)</span>の置換で得られる解が元の解と等しいこと, および仮定より<span class="arithmatex">\(a^{(i)} \ (0 \le i \le k)\)</span>の任意の置換によって得られる連立確率漸化式の解はすべて等しい. よって<span class="arithmatex">\(d = k+1\)</span>のとき題意は成り立つ.</p>
-<p>以上の議論により題意は成り立つ.</p>
+<p>が得られる. <span class="arithmatex">\(p^{(k-2)}_t\)</span>は<span class="arithmatex">\(a_{k-1}, a_k\)</span>には依存しないから(6)式は<span class="arithmatex">\(a_k, a_{k-1}\)</span>についての対称式である. <span class="arithmatex">\(q^{(k)}_0, q^{(k)}_1\)</span>も<span class="arithmatex">\(a_{k-1}, a_k\)</span>の対称式であるから, すべての<span class="arithmatex">\(t\)</span>について<span class="arithmatex">\(q^{(k)}_t\)</span>および<span class="arithmatex">\(p^{(k+1)}_t\)</span>は<span class="arithmatex">\(a_{k-1}, a_k\)</span>の対称式となる.</p>
+<p>次に<span class="arithmatex">\(a^{(i)} \ (0 \le i \le k)\)</span>の任意の置換について議論する. <span class="arithmatex">\(a_{k-1}, a_k\)</span>の置換と<span class="arithmatex">\(a_i \ (0 \le i \le k-1)\)</span>の置換を組み合わせることで<span class="arithmatex">\(a_i \ (0 \le i \le k)\)</span>の任意の置換を生成することができる. 加えて, <span class="arithmatex">\(a_{k-1}, a_k\)</span>の置換で得られる解が元の解と等しいこと, および仮定より<span class="arithmatex">\(a_i \ (0 \le i \le k)\)</span>の任意の置換によって得られる連立確率漸化式の解はすべて等しい. よって<span class="arithmatex">\(d = k+1\)</span>のとき題意は成り立つ.</p>
+<p>以上の議論により任意の<span class="arithmatex">\(d\)</span>について題意は成り立つ.</p>
                 
               
               
