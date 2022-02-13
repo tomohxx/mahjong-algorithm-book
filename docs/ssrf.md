@@ -85,6 +85,10 @@ $$
 
 このように前処理を行うことで置換数(向聴数)を高速に計算できる. ソースコードは[shanten-number](https://github.com/tomohxx/shanten-number)を参照すること.
 
+## 配牌時向聴数
+
+配牌時の向聴数については[D. 配牌時向聴数](shanten.md)を参照すること.
+
 ## 有効牌/不要牌
 
 置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは[necessary-or-unnecessary-tiles](https://github.com/tomohxx/necessary-or-unnecessary-tiles)を参照すること.

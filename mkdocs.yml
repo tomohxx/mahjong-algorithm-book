@@ -44,3 +44,4 @@ pages:
       - A. 天和の確率: 'tenhou.md'
       - B. 置換定理: 'permutation.md'
       - C. 和了確率の表式: 'formula.md'
+      - D. 配牌時向聴数: 'shanten.md'
