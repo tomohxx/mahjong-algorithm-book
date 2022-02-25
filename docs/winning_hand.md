@@ -62,8 +62,7 @@ bool iswh0(const int* h)
     }
     else return false;
   }
-  if(a%3==0 && b%3==0) return true;
-  else return false;
+  return a%3==0 && b%3==0;
 }
 ```
 
