@@ -199,7 +199,7 @@ int main()
       }
 
       if(cnt[1] == 0 && cnt[2] == 1 && cnt[4] == 0){
-        b[3][m].first += patterns(h.begin(), h.end());;
+        b[3][m].first += patterns(h.begin(), h.end());
       }
     });
   }
