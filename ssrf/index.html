@@ -309,6 +309,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    聴牌形
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -460,6 +467,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    聴牌形
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -558,6 +572,49 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 <p>配牌時の向聴数については<a href="../shanten/">D. 配牌時向聴数</a>を参照すること.</p>
 <h2 id="_6">有効牌/不要牌<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは<a href="https://github.com/tomohxx/necessary-or-unnecessary-tiles">necessary-or-unnecessary-tiles</a>を参照すること.</p>
+<h2 id="_7">聴牌形<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>和了形と同様に聴牌形も連立集合漸化式で表せる. 前述の<span class="arithmatex">\(A^n_m, B^n_m\)</span>に加えて以下の集合<span class="arithmatex">\(C^n_m, D^n_m\)</span>を考える.</p>
+<table>
+<thead>
+<tr>
+<th align="left">部分集合</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><span class="arithmatex">\(A^n_m\)</span></td>
+<td align="left"><span class="arithmatex">\(H^n\)</span>の要素のうち, <span class="arithmatex">\(m\)</span>面子に分解できるものの集合</td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex">\(B^n_m\)</span></td>
+<td align="left"><span class="arithmatex">\(H^n\)</span>の要素のうち, <span class="arithmatex">\(m\)</span>面子一雀頭に分解できるものの集合</td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex">\(C^n_m\)</span></td>
+<td align="left"><span class="arithmatex">\(H^n\)</span>の要素のうち, あと1枚追加すると<span class="arithmatex">\(m\)</span>面子に分解できるものの集合</td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex">\(D^n_m\)</span></td>
+<td align="left"><span class="arithmatex">\(H^n\)</span>の要素のうち, あと1枚追加すると<span class="arithmatex">\(m\)</span>面子一雀頭に分解できるものの集合</td>
+</tr>
+</tbody>
+</table>
+<p>すべての<span class="arithmatex">\(n \in [0, 3], m \in [0, 4]\)</span>について<span class="arithmatex">\(A^n_m, B^n_m, C^n_m, D^n_m\)</span>が与えらたとき, 以下の連立集合漸化式を解くことですべての<span class="arithmatex">\(3N+1\)</span>聴牌形の集合<span class="arithmatex">\(D^{(3)}_m\)</span>を得られる.</p>
+<div class="arithmatex">\[
+\left\{
+\begin{aligned}
+A^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ A^{(n)}_l \times A^{n+1}_{m-l} \right\} &amp; A^{(0)}_m &amp;= A^0_m \\
+B^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup A^{(n)}_l \times B^{n+1}_{m-l} \right\} &amp; B^{(0)}_m &amp;= B^0_m \\
+C^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ C^{(n)}_l \times A^{n+1}_{m-l} \cup A^{(n)}_l \times C^{n+1}_{m-l} \right\} &amp; C^{(0)}_m &amp;= C^0_m \\
+D^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ D^{(n)}_l \times A^{n+1}_{m-l} \cup A^{(n)}_l \times D^{n+1}_{m-l} \cup B^{(n)}_l \times C^{n+1}_{m-l-1} \cup C^{(n)}_l \times B^{n+1}_{m-l-1} \right\} &amp; D^{(0)}_m &amp;= D^0_m
+\end{aligned}
+\right.
+\]</div>
+<p>和了形の数と同様に聴牌形の数も計算することができる. 特に, 集合<span class="arithmatex">\(C^n_m, D^n_m\)</span>のうちある牌を待つ集合だけを取り出せば, その牌を待つ聴牌形の集合を得られる. この集合の要素数をすべての聴牌形の集合の要素数で割ることで, すべての聴牌形の出現確率がそれぞれ等しいとしたときにある牌を待つ確率を計算できる. つまり, 最も単純な仮定の下で牌の危険度を予測できる. これについてソースコードは<a href="https://github.com/tomohxx/predictor">predictor</a>を参照すること.</p>
+<div class="arithmatex">\[
+(\text{ある牌を待つ確率}) = \frac{(\text{その牌を待つ聴牌形の数})}{(\text{すべての聴牌形の数})}
+\]</div>
                 
               
               
