@@ -91,7 +91,7 @@ $$
 
 ## 有効牌/不要牌
 
-置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは[necessary-or-unnecessary-tiles](https://github.com/tomohxx/necessary-or-unnecessary-tiles)を参照すること.
+置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは[necessary-or-unnecessary-tiles](https://github.com/tomohxx/necessary-or-unnecessary-tiles)を参照すること. また, このライブラリを用いて[配牌時有効牌の枚数](wait.md)の平均値を計算できる.
 
 ## 聴牌形
 
