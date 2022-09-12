@@ -28,7 +28,7 @@ A_t =
 $$
 
 $$
-P_t = 
+P_t =
 \begin{pmatrix}
 p^{(0)}_t \\
 p^{(1)}_t \\
@@ -169,5 +169,3 @@ p^{(d)}_t &= C \sum_{i=0}^{d-1} \frac{1}{a_i} \left( 1 - \frac{_{S-a_i}P_t}{_SP_
 $$
 
 となり解を得る.
-
-
