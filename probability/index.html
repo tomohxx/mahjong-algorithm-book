@@ -505,7 +505,7 @@
                 
                 <h1 id="_1">和了確率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">有効牌の枚数の変化に分岐がない場合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が1通りであるとする. ここで和了形は1通りでなくてもよい. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a_0\)</span>とする. この状態から有効牌を1枚引くごとに置換数が1ずつ減少し最終的に0になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a_0, a_1, \ldots , a_{d-1}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
+<p>ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が 1 通りであるとする. ここで和了形は 1 通りでなくてもよい. この手牌の置換数を<span class="arithmatex">\(d\)</span>, 有効牌の枚数を<span class="arithmatex">\(a_0\)</span>とする. この状態から有効牌を 1 枚引くごとに置換数が 1 ずつ減少し最終的に 0 になるが, この過程で有効牌の枚数が<span class="arithmatex">\(a_0, a_1, \ldots , a_{d-1}\)</span>と変化する. 手牌の置換数が<span class="arithmatex">\(d\)</span>のものから<span class="arithmatex">\(0\)</span>のものまでの<span class="arithmatex">\(d+1\)</span>個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -516,9 +516,9 @@ p^{(d)}_{t+1} &amp;= \frac{a_{d-1}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} &amp; p^{(d)}
 \right.
 \tag{1}
 \]</div>
-<p>ここで, <span class="arithmatex">\(t\)</span>は巡目, <span class="arithmatex">\(S\)</span>は0巡目での牌の総数を表す. <span class="arithmatex">\(t\)</span>巡目における和了確率は<span class="arithmatex">\(p^{(d)}_t\)</span>である.</p>
+<p>ここで, <span class="arithmatex">\(t\)</span>は巡目, <span class="arithmatex">\(S\)</span>は 0 巡目での牌の総数を表す. <span class="arithmatex">\(t\)</span>巡目における和了確率は<span class="arithmatex">\(p^{(d)}_t\)</span>である.</p>
 <h2 id="_3">有効牌の枚数の変化に分岐がある場合<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>有効牌の枚数の変化が1通りではなく引いた牌に応じて分岐する場合を考える. なお有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.</p>
+<p>有効牌の枚数の変化が 1 通りではなく引いた牌に応じて分岐する場合を考える. なお有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.</p>
 <figure text-align="center">
   <img src="../img/tree-1.svg"/>
   <figcaption>図1: 4枚形23m25pの変化</figcaption>
@@ -545,7 +545,7 @@ p^{(l, d)}_{t+1} &amp;= \frac{b^l_{d-1}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t &amp
 <div class="arithmatex">\[
 P_t = \sum_{l \in L} p^{(l, d)}_t
 \]</div>
-<p>となる. </p>
+<p>となる.</p>
 <h2 id="_4">パラメータ変換<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>(2)式の<span class="arithmatex">\(b^l_i\)</span>を<span class="arithmatex">\(a^l_i\)</span>で置き換えると, 形式的に(2)式を(1)式に変形できる.</p>
 <div class="arithmatex">\[
@@ -572,14 +572,14 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^l_j}{a^l_j} &amp; (0 
 <h2 id="_6">和了確率の表式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>(1)式の解の表式は<a href="../formula/">C. 和了確率の表式</a>を参照すること.</p>
 <h2 id="_7">ソースコード<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>図2で示された手牌の変化の木の和了確率を計算する.</p>
-<p>入力:
+<p>図 2 で示された手牌の変化の木の和了確率を計算する.</p>
+<p>入力:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ノード数 牌の枚数 巡目
 ノード番号 親ノード番号(根の場合は-1) 変化に必要な牌の枚数(根の場合は-1)
 </code></pre></div>
-</td></tr></table></p>
-<p>入力例:
+</td></tr></table>
+<p>入力例:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -604,12 +604,12 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^l_j}{a^l_j} &amp; (0 
 9 8 4
 10 8 4
 </code></pre></div>
-</td></tr></table></p>
-<p>出力例:
+</td></tr></table>
+<p>出力例:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>0.323206
 </code></pre></div>
-</td></tr></table></p>
-<p>実装:
+</td></tr></table>
+<p>実装:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -762,7 +762,7 @@ p^{(l, i)}_t &amp;= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^l_j}{a^l_j} &amp; (0 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
                 
               
               
