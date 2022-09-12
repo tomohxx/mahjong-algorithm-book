@@ -130,19 +130,19 @@ double prob(const std::vector<int>& a, const int s, const int d, const int t)
 
   value[0][0] = 1.0;
 
-  for(int k=0; k<t; ++k){
-    value[0][k+1] = (1-1.0*a[0]/(s-k))*value[0][k];
+  for (int k = 0; k < t; ++k) {
+    value[0][k + 1] = (1 - 1.0 * a[0] / (s - k)) * value[0][k];
 
-    for(int j=1; j<d; ++j){
-      value[j][k+1] = (1-1.0*a[j]/(s-k))*value[j][k]+1.0*a[j-1]/(s-k)*value[j-1][k];
+    for (int j = 1; j < d; ++j) {
+      value[j][k + 1] = (1 - 1.0 * a[j] / (s - k)) * value[j][k] + 1.0 * a[j - 1] / (s - k) * value[j - 1][k];
     }
-    value[d][k+1] = 1.0*a[d-1]/(s-k)*value[d-1][k]+value[d][k];
+    value[d][k + 1] = 1.0 * a[d - 1] / (s - k) * value[d - 1][k] + value[d][k];
   }
   return value[d][t];
 }
 
 // ノードを管理するクラス
-struct Node{
+struct Node {
   // 親ノード
   Node* parent = nullptr;
   // 変化に必要な牌の枚数
@@ -160,12 +160,12 @@ int main()
 
   std::vector<Node> nodes(N);
 
-  for(int i=0; i<N; ++i){
+  for (int i = 0; i < N; ++i) {
     int self, parent, value;
 
     std::cin >> self >> parent >> value;
 
-    if(parent != -1){
+    if (parent != -1) {
       nodes[self].parent = &nodes[parent];
       nodes[self].value = value;
       nodes[self].parent->effective += value;
@@ -175,20 +175,20 @@ int main()
   double res = 0.0;
 
   // 葉を見つけて和了確率を計算する
-  for(int i=0; i<N; ++i){
-    if(nodes[i].effective == 0){
+  for (int i = 0; i < N; ++i) {
+    if (nodes[i].effective == 0) {
       std::vector<int> a;
 
       double coeff = 1.0;
 
       // 根まで辿る
-      for(Node* ptr=&nodes[i]; ptr->parent!=nullptr; ptr=ptr->parent){
+      for (Node* ptr = &nodes[i]; ptr->parent != nullptr; ptr = ptr->parent) {
         a.push_back(ptr->parent->effective);
-        coeff *= static_cast<double>(ptr->value)/ptr->parent->effective;
+        coeff *= static_cast<double>(ptr->value) / ptr->parent->effective;
       }
 
       // 和了確率を計算する(パラメータ変換と置換定理を利用)
-      res += prob(a, S, a.size(), T)*coeff;
+      res += prob(a, S, a.size(), T) * coeff;
     }
   }
 

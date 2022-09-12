@@ -56,13 +56,14 @@ bool iswh0(const int* h)
 {
   int a = h[0], b = h[1];
 
-  for(int i=0; i<7; ++i){
-    if(int r=a%3; b>=r && h[i+2]>=r){
-      a=b-r; b=h[i+2]-r;
+  for (int i = 0; i < 7; ++i) {
+    if (int r = a % 3; b >= r && h[i + 2] >= r) {
+      a = b - r;
+      b = h[i + 2] - r;
     }
     else return false;
   }
-  return a%3==0 && b%3==0;
+  return a % 3 == 0 && b % 3 == 0;
 }
 ```
 
@@ -75,15 +76,15 @@ bool iswh2(int* h)
 {
   int s = 0;
 
-  for(int i=0; i<9; ++i){
-    s += i*h[i];
+  for (int i = 0; i < 9; ++i) {
+    s += i * h[i];
   }
 
-  for(int p=s*2%3; p<9; p+=3){
-    if(h[p] >= 2){
+  for (int p = s * 2 % 3; p < 9; p += 3) {
+    if (h[p] >= 2) {
       h[p] -= 2;
 
-      if(iswh0(h)){
+      if (iswh0(h)) {
         h[p] += 2;
         return true;
       }
@@ -101,16 +102,16 @@ int isrh2(int* h)
 {
   int s = 0, wait = 0;
 
-  for(int i=0; i<9; ++i){
-    s += i*h[i];
+  for (int i = 0; i < 9; ++i) {
+    s += i * h[i];
   }
 
-  for(int x=s*2%3; x<9; x+=3){
-    if(h[x] < 4){
+  for (int x = s * 2 % 3; x < 9; x += 3) {
+    if (h[x] < 4) {
       ++h[x];
 
-      if(iswh0(h)){
-        wait ^= 1<<x;
+      if (iswh0(h)) {
+        wait ^= 1 << x;
       }
       --h[x];
     }
@@ -126,21 +127,21 @@ int isrh1(int* h)
 {
   int s = 0, wait = 0;
 
-  for(int i=0; i<9; ++i){
-    s += i*h[i];
+  for (int i = 0; i < 9; ++i) {
+    s += i * h[i];
   }
 
-  for(int x=0; x<9; ++x){
-    if(h[x] < 4){
+  for (int x = 0; x < 9; ++x) {
+    if (h[x] < 4) {
       ++h[x];
 
-      for(int p=(s*2-x)%3; p<9; p+=3){
-        if(h[p] >= 2){
+      for (int p = (s * 2 - x) % 3; p < 9; p += 3) {
+        if (h[p] >= 2) {
           h[p] -= 2;
 
-          if(iswh0(h)){
+          if (iswh0(h)) {
             h[p] += 2;
-            wait ^= 1<<x;
+            wait ^= 1 << x;
             break;
           }
           else h[p] += 2;

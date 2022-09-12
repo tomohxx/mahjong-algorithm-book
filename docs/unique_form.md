@@ -38,24 +38,28 @@ bool isuf1(int* h)
 {
   auto wait = isrh1(h);
 
-  for(int i=0; i<9; ++i){
-    if(h[i] >= 3){
+  for (int i = 0; i < 9; ++i) {
+    if (h[i] >= 3) {
       h[i] -= 3;
       auto tmp = isrh1(h);
       h[i] += 3;
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1){
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1) {
         return false;
       }
     }
   }
-  for(int i=0; i<7; ++i){
-    if(h[i] >= 1 && h[i+1] >= 1 && h[i+2] >= 1){
-      --h[i]; --h[i+1]; --h[i+2];
+  for (int i = 0; i < 7; ++i) {
+    if (h[i] >= 1 && h[i + 1] >= 1 && h[i + 2] >= 1) {
+      --h[i];
+      --h[i + 1];
+      --h[i + 2];
       auto tmp = isrh1(h);
-      ++h[i]; ++h[i+1]; ++h[i+2];
+      ++h[i];
+      ++h[i + 1];
+      ++h[i + 2];
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1){
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1) {
         return false;
       }
     }
@@ -71,24 +75,28 @@ bool isuf2(int* h)
 {
   auto wait = isrh2(h);
 
-  for(int i=0; i<9; ++i){
-    if(h[i] >= 3){
+  for (int i = 0; i < 9; ++i) {
+    if (h[i] >= 3) {
       h[i] -= 3;
       auto tmp = isrh2(h);
       h[i] += 3;
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1){
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1) {
         return false;
       }
     }
   }
-  for(int i=0; i<7; ++i){
-    if(h[i] >= 1 && h[i+1] >= 1 && h[i+2] >= 1){
-      --h[i]; --h[i+1]; --h[i+2];
+  for (int i = 0; i < 7; ++i) {
+    if (h[i] >= 1 && h[i + 1] >= 1 && h[i + 2] >= 1) {
+      --h[i];
+      --h[i + 1];
+      --h[i + 2];
       auto tmp = isrh2(h);
-      ++h[i]; ++h[i+1]; ++h[i+2];
+      ++h[i];
+      ++h[i + 1];
+      ++h[i + 2];
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1){
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1) {
         return false;
       }
     }
@@ -104,29 +112,35 @@ bool iswr2(int* h)
 {
   auto wait = isrh2(h);
 
-  for(int i=0; i<9; ++i){
-    if(h[i] >= 3){
-      h[i]-=3;
+  for (int i = 0; i < 9; ++i) {
+    if (h[i] >= 3) {
+      h[i] -= 3;
       auto tmp = isrh2(h);
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1 && iswh2(h)){
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1 && iswh2(h)) {
         h[i] += 3;
         return false;
       }
       else h[i] += 3;
     }
   }
-  for(int i=0; i<7; i++){
-    if(h[i] >= 1 && h[i+1] >= 1 && h[i+2] >= 1){
-      --h[i]; --h[i+1]; --h[i+2];
+  for (int i = 0; i < 7; i++) {
+    if (h[i] >= 1 && h[i + 1] >= 1 && h[i + 2] >= 1) {
+      --h[i];
+      --h[i + 1];
+      --h[i + 2];
       auto tmp = isrh2(h);
 
-      if(((~wait|tmp)&((1<<9)-1)) == (1<<9)-1 && iswh2(h)){
-        ++h[i]; ++h[i+1]; ++h[i+2];
+      if (((~wait | tmp) & ((1 << 9) - 1)) == (1 << 9) - 1 && iswh2(h)) {
+        ++h[i];
+        ++h[i + 1];
+        ++h[i + 2];
         return false;
       }
-      else{
-        ++h[i]; ++h[i+1]; ++h[i+2];
+      else {
+        ++h[i];
+        ++h[i + 1];
+        ++h[i + 2];
       }
     }
   }

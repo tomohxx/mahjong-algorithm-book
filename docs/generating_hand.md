@@ -13,13 +13,13 @@ void generate(int n, int m, std::function<void(const std::vector<int>&)> func)
 {
   static std::vector<int> h(9);
 
-  if(n == 9){
+  if (n == 9) {
     func(h);
   }
-  else{
-    for(int i=std::max(0, m-4*(8-n)); i<=std::min(4, m); ++i){
+  else {
+    for (int i = std::max(0, m - 4 * (8 - n)); i <= std::min(4, m); ++i) {
       h[n] = i;
-      generate(n+1, m-i, func);
+      generate(n + 1, m - i, func);
     }
   }
 }
@@ -30,8 +30,8 @@ int main()
 
   std::cin >> M;
 
-  generate(0, M, [](const std::vector<int>& h){
-    for(const auto& i : h){
+  generate(0, M, [](const std::vector<int>& h) {
+    for (const auto& i : h) {
       std::cout << i << ' ';
     }
     std::cout << '\n';
@@ -60,10 +60,10 @@ int main()
 
   std::iota(tiles.begin(), tiles.end(), 0);
 
-  for(int i=0; i<N; ++i){
-    for(int j=0; j<M; ++j){
-      int n = rand()%(136-j);
-      std::swap(tiles[n], tiles[135-j]);
+  for (int i = 0; i < N; ++i) {
+    for (int j = 0; j < M; ++j) {
+      int n = rand() % (136 - j);
+      std::swap(tiles[n], tiles[135 - j]);
       std::cout << n << " ";
     }
     std::cout << "\n";
