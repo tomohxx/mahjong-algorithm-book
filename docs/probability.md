@@ -2,202 +2,130 @@
 
 ## 有効牌の枚数の変化に分岐がない場合
 
-ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が 1 通りであるとする. ここで和了形は 1 通りでなくてもよい. この手牌の置換数を$d$, 有効牌の枚数を$a_0$とする. この状態から有効牌を 1 枚引くごとに置換数が 1 ずつ減少し最終的に 0 になるが, この過程で有効牌の枚数が$a_0, a_1, \ldots , a_{d-1}$と変化する. 手牌の置換数が$d$のものから$0$のものまでの$d+1$個の状態が存在するから, 各状態の存在確率についての連立確率漸化式を考えれば和了確率を表せる.
+ある手牌が与えられ, どのように和了に向かっても有効牌の枚数の変化が 1 通りであるとする. ここで和了形は 1 通りでなくてもよい. この手牌の置換数を$d$, 有効牌の枚数を$a_0$とする. この状態から有効牌を 1 枚引くごとに置換数が 1 ずつ減少し最終的に 0 になるが, この過程で有効牌の枚数が$a_0, a_1, \ldots , a_{d-1}$と変化する. 手牌の置換数が$d$のものから$0$のものまでの$d+1$個の状態が存在するから, 各状態間の遷移を表す確率行列$A_u$を考えれば和了確率を表せる.
 
 $$
-\left\{
-\begin{aligned}
-p^{(0)}_{t+1} &= \left( 1- \frac{a_0}{S-t} \right) p^{(0)}_t & p^{(0)}_0 &= 1 \\
-p^{(i)}_{t+1} &= \left( 1- \frac{a_i}{S-t} \right) p^{(i)}_t + \frac{a_{i-1}}{S-t} p^{(i-1)}_t & p^{(i)}_0 &= 0 & (0 \le i < d) \\
-p^{(d)}_{t+1} &= \frac{a_{d-1}}{S-t} p^{(d-1)}_t + p^{(d)}_{t} & p^{(d)}_0 &= 0
-\end{aligned}
-\right.
+A_u =
+\begin{pmatrix}
+1-\frac{a_0}{S-u} & 0 & \dots & 0 & 0 \\
+\frac{a_0}{S-u} & 1-\frac{a_1}{S-u} & \dots & 0 & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & \dots & 1-\frac{a_{d-1}}{S-u} & 0 \\
+0 & 0 & \dots & \frac{a_{d-1}}{S-u} & 1-\frac{a_d}{S-u} \\
+\end{pmatrix}
 \tag{1}
 $$
 
-ここで, $t$は巡目, $S$は 0 巡目での牌の総数を表す. $t$巡目における和了確率は$p^{(d)}_t$である.
-
-## 有効牌の枚数の変化に分岐がある場合
-
-有効牌の枚数の変化が 1 通りではなく引いた牌に応じて分岐する場合を考える. なお有効牌の枚数の変化は引いた牌だけでなく捨てた牌によっても分岐するが, 議論を簡単にするためどの牌を引いたときにどの牌を捨てるかが事前に決まっているものとする. 和了へ向かう手牌の変化は次の図のように木で表せる.
-
-<figure text-align="center">
-  <img src="../img/tree-1.svg"/>
-  <figcaption>図1: 4枚形23m25pの変化</figcaption>
-</figure>
-
-和了確率はこの木に含まれるそれぞれの葉ノードで和了する確率の和となる. 葉ノードの集合を$L$とすると特定の$l \in L$に到達するための途中の状態の存在確率は以下の連立確率漸化式で表せる.
+(1)式で$u$は巡目, $S$は 0 巡目での牌の総数を表す. また$a_d = 0$とする. $t$巡目における和了確率$p_t$は
 
 $$
-\left\{
-\begin{aligned}
-p^{(l, 0)}_{t+1} &= \left( 1-\frac{a^l_0}{S-t} \right) p^{(l, 0)}_t  & p^{(l, 0)}_0 &= 1 \\
-p^{(l, i)}_{t+1} &= \left( 1-\frac{a^l_i}{S-t} \right) p^{(l, i)}_t + \frac{b^l_{i-1}}{S-t} p^{(l, i-1)}_t & p^{(l, i)}_0 &= 0 & (0 \le i < d) \\
-p^{(l, d)}_{t+1} &= \frac{b^l_{d-1}}{S-t} p^{(l, d-1)}_t + p^{(l, d)}_t & p^{(l, d)}_0 &= 0
-\end{aligned}
-\right.
+p_t = {}^t \boldsymbol{e}_d A_{t-1} A_{t-2} \cdots A_1 A_0 \boldsymbol{e}_0
 \tag{2}
 $$
 
-ここで, $a^l_i$は深さ$i$の状態の有効牌の枚数, $b^l_i$は深さ$i$の状態から深さ$i+1$の状態に変化するのに必要な牌の枚数である. 例えば次の図の経路$0 \rightarrow 1 \rightarrow 2$では, $a^2_0 = 14, b^2_0 = 4, a^2_1 = 3, b^2_1 = 3$となる. この例からわかるように$a^l_i \ge b^l_i$となる. $t$巡目に葉ノード$l$で和了する確率は$p^{(l, d)}_t$である.
+と書ける(行列やベクトルの添字の始まりが 0 であることに注意).
 
-<figure text-align="center">
-  <img src="../img/tree-2.svg"/>
-  <figcaption>図2: 手牌の変化の木</figcaption>
-</figure>
-
-和了確率を$P_t$とすると
+(2)式を計算する方法は 2 通りあり, ①$\boldsymbol{e}_0$に左から$A_u$を繰り返し作用させる方法と ②${}^t \boldsymbol{e}_d$に右から$A_u$を繰り返し作用させる方法がある. それぞれの方法は以下のように書ける.
 
 $$
-P_t = \sum_{l \in L} p^{(l, d)}_t
-$$
-
-となる.
-
-## パラメータ変換
-
-(2)式の$b^l_i$を$a^l_i$で置き換えると, 形式的に(2)式を(1)式に変形できる.
-
-$$
-\left\{
-\begin{aligned}
-q^{(l, 0)}_{t+1} &= \left( 1-\frac{a^l_0}{S-t} \right) q^{(l, 0)}_t  & q^{(l, 0)}_0 &= 1 \\
-q^{(l, i)}_{t+1} &= \left( 1-\frac{a^l_i}{S-t} \right) q^{(l, i)}_t + \frac{a^l_{i-1}}{S-t} q^{(l, i-1)}_t & q^{(l, i)}_0 &= 0 & (0 \le i < d) \\
-q^{(l, d)}_{t+1} &= \frac{a^l_{d-1}}{S-t} q^{(l, d-1)}_t + q^{(l, d)}_t & q^{(l, d)}_0 &= 0
-\end{aligned}
-\right.
+\boldsymbol{q}_0 = \boldsymbol{e}_0,\ \boldsymbol{q}_{u+1} = A_u \boldsymbol{q}_u
 \tag{3}
 $$
 
-(2)式の$p^{(l, i)}_{t}$と(3)式の$q^{(l, i)}_{t}$には以下の関係が成り立つ.
+$$
+\boldsymbol{p}_t = \boldsymbol{e}_d,\ {}^t\boldsymbol{p}_u = {}^t\boldsymbol{p}_{u+1} A_u
+\tag{4}
+$$
+
+$\boldsymbol{q}_u$は$u$巡目での各状態の存在確率を表し, $\boldsymbol{p}_u$は$u$巡目での各状態の和了確率を表す. 存在確率と和了確率の関係は以下の式で表せる.
 
 $$
+p_t = {}^t\boldsymbol{p}_u \boldsymbol{q}_u = {}^t\boldsymbol{p}_0 \boldsymbol{e}_0 = {}^t\boldsymbol{e}_d \boldsymbol{q}_t
+\tag{5}
+$$
+
+この例のように有効牌の枚数の変化が 1 通りであればどちらの方法も使えるが, そうではない場合和了へ向かう途中の状態の和了確率を最大化する打牌を選択する必要があるため後者の方法しか使うことができない.
+
+## 有効牌の枚数の変化に分岐がある場合
+
+有効牌の枚数の変化が 1 通りではなく引いた牌に応じて分岐する場合を考える. 和了へ向かう手牌の変化を表す有効非巡回グラフ(DAG, 以降手牌変化のグラフと呼ぶ)を導入する.
+
+<figure text-align="center">
+  <img src="../img/dag.svg"/>
+  <figcaption>図1: 手牌変化のグラフ(黒実線は有効牌の自摸, 黒破線は不要牌の打牌, 赤実線は手替わり, 赤破線は向聴戻しを表す)</figcaption>
+</figure>
+
+これは手牌方向と巡目方向の 2 つの方向への広がりを持つグラフである. 各頂点が各手牌, 各巡目の和了確率を表す. 番号が同じ頂点どうしは手牌としては同じ(巡目が異なる)である. なお簡単のため 0, 1 巡目の状態しか示していない. 先述のように和了確率を求めるには各状態の和了確率を知らなければならないため, 動的計画法(DP)を使って計算する際は矢印の向きを逆向きにたどって各状態を訪問する必要がある.
+
+ここで$3n+1$枚の手牌の集合を$H_1$, $3n+2$枚の手牌の集合を$H_2$, 巡目を$u$として各状態の和了確率は以下の漸化式で表せる.
+
+$$
+p^h_u =
+\left\{
 \begin{aligned}
-p^{(l, i)}_t &= q^{(l, i)}_t \prod_{j=0}^{i-1} \frac{b^l_j}{a^l_j} & (0 < i \le d)
+& p^h_{u+1} + \sum_{h' \in \mathrm{adj}(h)} \frac{e(h, h')}{S-u} (p^{h'}_{u+1} - p^h_{u+1}) & (h \in H_1) \\
+& \max_{h' \in \mathrm{adj}(h)} \left\{ p^{h'}_u \right\} & (h \in H_2)
 \end{aligned}
+\right.
+\tag{6}
 $$
 
-## 置換定理
+(6)式で$\mathrm{adj}(h)$は隣接する手牌の集合を得る演算, $e(h, h')$は手牌$h$から手牌$h'$に変化するための牌の枚数である. 境界条件は和了している手牌の集合を$W \subset H_2$として
 
-: (1)式のパラメータ$a^{(i)}$の任意の置換によって得られる連立確率漸化式の解$p^{(d)}_t$はすべて等しい.
+$$
+p^h_u =
+\left\{
+\begin{aligned}
+& 1 & (h \in W) \\
+& 0 & (h \notin W)
+\end{aligned}
+\right.
+\quad (0 \le u \le t)
+\tag{7}
+$$
 
-この証明は[B. 置換定理](permutation.md)を参照すること.
+である. 以下(6)式について考察する.
+
+### 緩和順
+
+添字が手牌方向と巡目方向と 2 つあるため, どちらをループの外側にするのかが問題になる. 手牌変化のグラフを見ると巡目方向がトポロジカル順序になることがわかるため, 巡目をループの外側にすればよい. ここで手牌変化のグラフから赤色の矢印がないとすると手牌方向もトポロジカル順序になる. この場合再帰的に手牌を探索しながら各巡目での和了確率を計算でき計算速度・メモリ効率ともに向上する.
+
+### 辺の重み
+
+辺の重み$e(h, h')$を巡目によらず固定としてよいのかは, 和了確率を最大にする打牌をする場合 2 回以上同じ手牌を訪問しないため固定としてよい.
+
+### 不整合
+
+$\sum_{h' \in \mathrm{adj}(h)} e(h, h') > S - u$(ただし$p^{h'}_{u+1} > p^h_{u+1}$)となる巡目で$p^h_u$を確率として解釈できなくなる. しかし, このとき対応する存在確率は 0 になっているためこの状態が途中の状態となることはない. ただし(6)式の第 2 式でこの状態が選択されないように工夫するか, 一度捨てた牌は山に戻ると仮定する必要がある.
+
+### 得点期待値
+
+和了確率ではなく得点期待値を求める場合, 基本的には(6)式で和了確率$p^h_u$を得点期待値$s^h_u$に置き換えればよい. ただし注意点が 2 点ある. 1 点目は得点は和了の状態に付属するのではなく聴牌から和了へ向かう辺に重みとして付属するということである. つまり辺は有効牌の枚数と得点の 2 種類の重みをもつことになる. 2 点目は和了の状態に到達したとして和了を宣言するか局を続行するか選択する必要があるということである. これらに注意して得点期待値を表す漸化式は以下のようになる.
+
+$$
+s^h_u =
+\left\{
+\begin{aligned}
+& s^h_{u+1} + \sum_{h' \in \mathrm{adj}(h)} \frac{e_1(h, h')}{S-u} \left( \max \left\{e_2(h, h'),\ s^{h'}_{u+1} \right\} - s^h_{u+1} \right) & (h \in H_1) \\
+& \max_{h' \in \mathrm{adj}(h)} \left\{ s^{h'}_u \right\} & (h \in H_2)
+\end{aligned}
+\right.
+\tag{8}
+$$
+
+ここで$e_1(h, h')$は有効牌の枚数, $e_2(h, h')$は得点を表す. $e_2(h, h')$は手牌$h'$が和了のときだけ 0 以外の値をもち, それ以外では 0 となる. なお初期条件は
+
+$$
+s^h_u = 0 \quad (0 \le u \le t)
+\tag{9}
+$$
+
+である.
 
 ## 和了確率の表式
 
-(1)式の解の表式は[C. 和了確率の表式](formula.md)を参照すること.
+(2)式の解の表式は[B. 和了確率の表式](formula.md)を参照すること.
 
 ## ソースコード
 
-図 2 で示された手牌の変化の木の和了確率を計算する.
-
-入力:
-
-```
-ノード数 牌の枚数 巡目
-ノード番号 親ノード番号(根の場合は-1) 変化に必要な牌の枚数(根の場合は-1)
-```
-
-入力例:
-
-```
-11 123 17
-0 -1 -1
-1 0 4
-2 1 3
-3 0 4
-4 3 3
-5 0 3
-6 5 4
-7 5 4
-8 0 3
-9 8 4
-10 8 4
-```
-
-出力例:
-
-```
-0.323206
-```
-
-実装:
-
-```cpp
-#include <iostream>
-#include <vector>
-
-// 和了確率を計算する
-double prob(const std::vector<int>& a, const int s, const int d, const int t)
-{
-  static std::vector<std::vector<double>> value(128, std::vector<double>(128, 0.0));
-
-  value[0][0] = 1.0;
-
-  for (int k = 0; k < t; ++k) {
-    value[0][k + 1] = (1 - 1.0 * a[0] / (s - k)) * value[0][k];
-
-    for (int j = 1; j < d; ++j) {
-      value[j][k + 1] = (1 - 1.0 * a[j] / (s - k)) * value[j][k] + 1.0 * a[j - 1] / (s - k) * value[j - 1][k];
-    }
-    value[d][k + 1] = 1.0 * a[d - 1] / (s - k) * value[d - 1][k] + value[d][k];
-  }
-  return value[d][t];
-}
-
-// ノードを管理するクラス
-struct Node {
-  // 親ノード
-  Node* parent = nullptr;
-  // 変化に必要な牌の枚数
-  int value = -1;
-  // 有効牌の枚数
-  int effective = 0;
-};
-
-int main()
-{
-  // ノード数, 牌の枚数, 巡目
-  int N, S, T;
-
-  std::cin >> N >> S >> T;
-
-  std::vector<Node> nodes(N);
-
-  for (int i = 0; i < N; ++i) {
-    int self, parent, value;
-
-    std::cin >> self >> parent >> value;
-
-    if (parent != -1) {
-      nodes[self].parent = &nodes[parent];
-      nodes[self].value = value;
-      nodes[self].parent->effective += value;
-    }
-  }
-
-  double res = 0.0;
-
-  // 葉を見つけて和了確率を計算する
-  for (int i = 0; i < N; ++i) {
-    if (nodes[i].effective == 0) {
-      std::vector<int> a;
-
-      double coeff = 1.0;
-
-      // 根まで辿る
-      for (Node* ptr = &nodes[i]; ptr->parent != nullptr; ptr = ptr->parent) {
-        a.push_back(ptr->parent->effective);
-        coeff *= static_cast<double>(ptr->value) / ptr->parent->effective;
-      }
-
-      // 和了確率を計算する(パラメータ変換と置換定理を利用)
-      res += prob(a, S, a.size(), T) * coeff;
-    }
-  }
-
-  std::cout << res << std::endl;
-
-  return 0;
-}
-```
+ソースコードは[mahjong-win-prob](https://github.com/tomohxx/mahjong-win-prob)を参照すること.
