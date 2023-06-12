@@ -129,3 +129,7 @@ $$
 ## ソースコード
 
 ソースコードは[mahjong-win-prob](https://github.com/tomohxx/mahjong-win-prob)を参照すること.
+
+## 七対子・国士無双の聴牌確率
+
+七対子・国士無双の聴牌確率は有効牌の枚数の変化が数通りに限られるため容易に計算することができる. 七対子の聴牌確率は[chitoi.cpp](https://gist.github.com/tomohxx/1d69f22cbb38db78547f88e22946ed0c), 国士無双の聴牌確率は[kokushi.cpp](https://gist.github.com/tomohxx/5228d7de3fc1fbee93aa3ba104f80928)を参照すること.
