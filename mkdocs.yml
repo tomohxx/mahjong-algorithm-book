@@ -29,11 +29,12 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-google_analytics:
-  - UA-182036174-1
-  - auto
+extra:
+  analytics:
+    provider: google
+    property: G-366140948
 
-pages:
+nav:
   - 1. 牌空間: 'tile_space.md'
   - 2. 手牌(牌山)生成: 'generating_hand.md'
   - 3. 和了と聴牌: 'winning_hand.md'
