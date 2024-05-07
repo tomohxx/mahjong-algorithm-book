@@ -63,8 +63,8 @@ int main()
   for (int i = 0; i < N; ++i) {
     for (int j = 0; j < M; ++j) {
       int n = rand() % (136 - j);
+      std::cout << tiles[n] << " ";
       std::swap(tiles[n], tiles[135 - j]);
-      std::cout << n << " ";
     }
     std::cout << "\n";
   }
