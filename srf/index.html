@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://tomohxx.github.io/mahjong-algorithm-book/ssrf/">
+        <link rel="canonical" href="https://tomohxx.github.io/mahjong-algorithm-book/srf/">
       
       
         <link rel="prev" href="../unique_form/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>5. 連立集合漸化式 - 麻雀アルゴリズム</title>
+        <title>5. 集合漸化式 - 麻雀アルゴリズム</title>
       
     
     
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5. 連立集合漸化式
+              5. 集合漸化式
             
           </span>
         </div>
@@ -323,7 +323,7 @@
           
   
   <span class="md-ellipsis">
-    5. 連立集合漸化式
+    5. 集合漸化式
   </span>
   
 
@@ -334,7 +334,7 @@
         
   
   <span class="md-ellipsis">
-    5. 連立集合漸化式
+    5. 集合漸化式
   </span>
   
 
@@ -613,7 +613,7 @@
   
 
 
-<h1 id="_1">連立集合漸化式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_1">集合漸化式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(H^n\)</span>の要素のうち, <span class="arithmatex">\(m\)</span>面子に分解できるものの集合を<span class="arithmatex">\(A^n_m\)</span>, <span class="arithmatex">\(m\)</span>面子一雀頭に分解できるものの集合を<span class="arithmatex">\(B^n_m\)</span>とする.</p>
 <table>
@@ -634,7 +634,7 @@
 </tr>
 </tbody>
 </table>
-<p>すべての<span class="arithmatex">\(n \in [0, 3], m \in [0, 4]\)</span>について<span class="arithmatex">\(A^n_m, B^n_m\)</span>が与えらたとき, 以下の<strong>連立集合漸化式</strong>を解くことですべての<span class="arithmatex">\(3N+2\)</span>和了形を得られる. ここで<span class="arithmatex">\(m\)</span>面子一雀頭からなる<span class="arithmatex">\(3N+2\)</span>和了形の集合は<span class="arithmatex">\(B^{(3)}_m\)</span>である.</p>
+<p>すべての<span class="arithmatex">\(n \in [0, 3], m \in [0, 4]\)</span>について<span class="arithmatex">\(A^n_m, B^n_m\)</span>が与えらたとき, 以下の<strong>集合漸化式</strong>を解くことですべての<span class="arithmatex">\(3N+2\)</span>和了形を得られる. ここで<span class="arithmatex">\(m\)</span>面子一雀頭からなる<span class="arithmatex">\(3N+2\)</span>和了形の集合は<span class="arithmatex">\(B^{(3)}_m\)</span>である.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -643,9 +643,9 @@ B^{(n+1)}_m &amp;= \bigcup^{m}_{l=0} \left\{ B^{(n)}_l \times A^{n+1}_{m-l} \cup
 \end{aligned}
 \right. \\
 \]</div>
-<p>連立集合漸化式は数どうしの演算についての通常の漸化式と異なり, 集合どうしの演算についての漸化式である. これを解こうとすると集合をどのようなデータ構造で表現するかなどの疑問が生じるが, 実際にこれを解くことはまずなく大抵は通常の漸化式に帰着させる. なお, 連立集合漸化式から導かれたアルゴリズムは動的計画法の考え方を用いているといえる.</p>
+<p>集合漸化式は数どうしの演算についての通常の漸化式と異なり, 集合どうしの演算についての漸化式である. これを解こうとすると集合をどのようなデータ構造で表現するかなどの疑問が生じるが, 実際にこれを解くことはまずなく大抵は通常の漸化式に帰着させる. なお, 集合漸化式から導かれたアルゴリズムは動的計画法の考え方を用いているといえる.</p>
 <h2 id="_3">和了形の数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>連立集合漸化式の最も簡単な応用例は和了形の数を得ることである. <span class="arithmatex">\(3N+2\)</span>和了形の数<span class="arithmatex">\(|B^{(3)}_m|\)</span>は以下の連立漸化式の解として得られる. これは<a href="../tenhou/">天和の確率</a>を計算することに利用できる.</p>
+<p>集合漸化式の最も簡単な応用例は和了形の数を得ることである. <span class="arithmatex">\(3N+2\)</span>和了形の数<span class="arithmatex">\(|B^{(3)}_m|\)</span>は以下の連立漸化式の解として得られる. これは<a href="../tenhou/">天和の確率</a>を計算することに利用できる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
@@ -695,7 +695,7 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 <h2 id="_6">有効牌/不要牌<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>置換数(向聴数)と合わせて有効牌/不要牌を同時に計算できる. ソースコードは<a href="https://github.com/tomohxx/necessary-or-unnecessary-tiles">necessary-or-unnecessary-tiles</a>を参照すること. また, このライブラリを用いて<a href="wait.md">配牌時有効牌の枚数</a>の平均値を計算できる.</p>
 <h2 id="_7">聴牌形<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>和了形と同様に聴牌形も連立集合漸化式で表せる. 前述の<span class="arithmatex">\(A^n_m, B^n_m\)</span>に加えて以下の集合<span class="arithmatex">\(C^n_m, D^n_m\)</span>を考える.</p>
+<p>和了形と同様に聴牌形も集合漸化式で表せる. 前述の<span class="arithmatex">\(A^n_m, B^n_m\)</span>に加えて以下の集合<span class="arithmatex">\(C^n_m, D^n_m\)</span>を考える.</p>
 <table>
 <thead>
 <tr>
@@ -722,7 +722,7 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 </tr>
 </tbody>
 </table>
-<p>すべての<span class="arithmatex">\(n \in [0, 3], m \in [0, 4]\)</span>について<span class="arithmatex">\(A^n_m, B^n_m, C^n_m, D^n_m\)</span>が与えらたとき, 以下の連立集合漸化式を解くことですべての<span class="arithmatex">\(3N+1\)</span>聴牌形の集合<span class="arithmatex">\(D^{(3)}_m\)</span>を得られる.</p>
+<p>すべての<span class="arithmatex">\(n \in [0, 3], m \in [0, 4]\)</span>について<span class="arithmatex">\(A^n_m, B^n_m, C^n_m, D^n_m\)</span>が与えらたとき, 以下の集合漸化式を解くことですべての<span class="arithmatex">\(3N+1\)</span>聴牌形の集合<span class="arithmatex">\(D^{(3)}_m\)</span>を得られる.</p>
 <div class="arithmatex">\[
 \left\{
 \begin{aligned}
