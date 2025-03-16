@@ -45,6 +45,5 @@ nav:
       - A. 天和の確率: 'tenhou.md'
       - B. 和了確率の表式: 'formula.md'
       - C. 配牌時向聴数: 'shanten.md'
-      - D. 配牌時有効牌の枚数: 'wait.md'
 
 copyright: 'Copyright &copy; 2020-2023 tomohxx'
