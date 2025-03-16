@@ -39,7 +39,7 @@ nav:
   - 2. 手牌(牌山)生成: 'generating_hand.md'
   - 3. 和了と聴牌: 'winning_hand.md'
   - 4. 固有形: 'unique_form.md'
-  - 5. 連立集合漸化式: 'ssrf.md'
+  - 5. 集合漸化式: 'srf.md'
   - 6. 和了確率: 'probability.md'
   - 付録:
       - A. 天和の確率: 'tenhou.md'
