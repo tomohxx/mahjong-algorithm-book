@@ -47,3 +47,8 @@ nav:
       - C. 配牌時向聴数: 'shanten.md'
 
 copyright: 'Copyright &copy; 2020-2025 tomohxx'
+
+plugins:
+  - social:
+      cards_layout_options:
+        font_family: Noto Sans JP
