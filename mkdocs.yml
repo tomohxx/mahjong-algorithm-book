@@ -42,6 +42,7 @@ extra:
       link: https://x.com/recrusive
 
 nav:
+  - ホーム: 'index.md'
   - 1. 牌空間: 'tile_space.md'
   - 2. 手牌(牌山)生成: 'generating_hand.md'
   - 3. 和了と聴牌: 'winning_hand.md'
