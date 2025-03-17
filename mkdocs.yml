@@ -10,6 +10,8 @@ theme:
     scheme: default
     primary: cyan
     accent: pink
+  features:
+    - search.highlight
 
 markdown_extensions:
   - pymdownx.highlight
@@ -54,6 +56,8 @@ nav:
 copyright: 'Copyright &copy; 2020-2025 tomohxx'
 
 plugins:
+  - search:
+      lang: ja
   - social:
       cards_layout_options:
         font_family: Noto Sans JP
