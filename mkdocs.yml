@@ -33,6 +33,11 @@ extra:
   analytics:
     provider: google
     property: G-4B16B7SYQT
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tomohxx
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/recrusive
 
 nav:
   - 1. 牌空間: 'tile_space.md'
