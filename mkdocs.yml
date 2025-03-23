@@ -23,6 +23,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - def_list
   - toc:
       permalink: true

@@ -73,8 +73,9 @@ int main()
 }
 ```
 
-!!! Note
-`std::sample`の利用も検討する
+!!! note
+
+    `std::sample`の利用も検討する
 
 ## 重複組み合わせ
 
