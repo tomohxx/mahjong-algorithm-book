@@ -123,3 +123,126 @@ int main()
 ```
 326520504500
 ```
+
+## 形式的べき級数
+
+前述の手牌のパターン数は形式的べき級数を使っても求められる. ここでは多項式$f(x)$の$x^n$の係数を$[x^n]f$と表すことにする.
+
+### 赤ドラを区別しない場合
+
+赤ドラを区別しない場合, 手牌のパターン数は$[x^{14}](1+x+x^2+x^3+x^4)^{33}$である.
+
+ソースコード:
+
+```cpp
+#include <array>
+#include <iostream>
+constexpr unsigned int MAX_DEGREES = 14u;
+using ull = unsigned long long int;
+using arr = std::array<ull, MAX_DEGREES + 1u>;
+
+arr mul(const arr& f, const arr& g)
+{
+  arr h = {};
+
+  for (int i = 0; i <= MAX_DEGREES; ++i) {
+    for (int j = 0; j <= MAX_DEGREES; ++j) {
+      if (i + j > MAX_DEGREES) break;
+
+      h[i + j] += f[i] * g[j];
+    }
+  }
+
+  return h;
+}
+
+int main()
+{
+  const arr f = {1, 1, 1, 1, 1};
+  auto g = f;
+
+  for (unsigned int i = 0; i < 33; ++i) {
+    g = mul(f, g);
+  }
+
+  std::cout << g[MAX_DEGREES] << std::endl;
+  std::cout << g[MAX_DEGREES - 1u] << std::endl;
+
+  return 0;
+}
+```
+
+出力:
+
+```
+326520504500
+98521596000
+```
+
+1行目は14枚(親の配牌)のパターン数, 2行目は13枚(子の配牌)のパターン数である.
+
+### 赤ドラを区別する場合
+
+赤ドラを区別する場合, 手牌のパターン数は$[x^{14}](1+x+x^2+x^3+x^4)^{30}(1+x+x^2+x^3)^{3}(1+x)^{3}$である.
+
+ソースコード:
+
+```cpp
+#include <array>
+#include <iostream>
+constexpr unsigned int MAX_DEGREES = 14u;
+using ull = unsigned long long int;
+using arr = std::array<ull, MAX_DEGREES + 1u>;
+
+arr mul(const arr& f, const arr& g)
+{
+  arr h = {};
+
+  for (int i = 0; i <= MAX_DEGREES; ++i) {
+    for (int j = 0; j <= MAX_DEGREES; ++j) {
+      if (i + j > MAX_DEGREES) break;
+
+      h[i + j] += f[i] * g[j];
+    }
+  }
+
+  return h;
+}
+
+int main()
+{
+  const arr f = {1, 1, 1, 1, 1};
+  const arr g = {1, 1, 1, 1, 0};
+  const arr h = {1, 1, 0, 0, 0};
+  auto r = f;
+
+  for (unsigned int i = 0; i < 30; ++i) {
+    r = mul(f, r);
+  }
+
+  for (unsigned int i = 0; i < 3; ++i) {
+    r = mul(g, r);
+    r = mul(h, r);
+  }
+
+  std::cout << r[MAX_DEGREES] << std::endl;
+  std::cout << r[MAX_DEGREES - 1u] << std::endl;
+
+  return 0;
+}
+```
+
+出力:
+
+```
+705790937972
+205596295422
+```
+
+1行目は14枚(親の配牌)のパターン数, 2行目は13枚(子の配牌)のパターン数である.
+
+### 参考
+
+- [[多項式・形式的べき級数]（１）数え上げとの対応付け | maspyのHP](https://maspypy.com/%E5%A4%9A%E9%A0%85%E5%BC%8F%E3%83%BB%E5%BD%A2%E5%BC%8F%E7%9A%84%E3%81%B9%E3%81%8D%E7%B4%9A%E6%95%B0%E6%95%B0%E3%81%88%E4%B8%8A%E3%81%92%E3%81%A8%E3%81%AE%E5%AF%BE%E5%BF%9C%E4%BB%98%E3%81%91)
+- [麻雀の配牌のパターン数 - ヤマカサのプログラミング勉強日記](https://yamakasa3.hatenablog.com/entry/2022/01/26/060839)
+- [配牌完了直後の手牌パターンを数える（結論）｜山本夏蓮の麻雀研究室](https://note.com/karen_yamamoto/n/n41170e9847ee)
