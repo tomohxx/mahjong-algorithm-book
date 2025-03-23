@@ -11,6 +11,7 @@ theme:
     primary: cyan
     accent: pink
   features:
+    - content.code.copy
     - search.highlight
 
 markdown_extensions:
