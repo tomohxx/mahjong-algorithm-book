@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://tomohxx.github.io/mahjong-algorithm-book/tile_space/">
+        <link rel="canonical" href="https://tomohxx.github.io/mahjong-algorithm-book/01-bfs/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../dfs/">
       
       
-        <link rel="next" href="../generating_hand/">
+        <link rel="next" href="../mphf/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>1. 牌空間 - 麻雀アルゴリズム</title>
+        <title>01-bfs - 麻雀アルゴリズム</title>
       
     
     
@@ -67,11 +67,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="1. 牌空間 - 麻雀アルゴリズム" >
+        <meta  property="og:title"  content="01-bfs - 麻雀アルゴリズム" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/tile_space.png" >
+        <meta  property="og:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/01-bfs.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -79,15 +79,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://tomohxx.github.io/mahjong-algorithm-book/tile_space/" >
+        <meta  property="og:url"  content="https://tomohxx.github.io/mahjong-algorithm-book/01-bfs/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="1. 牌空間 - 麻雀アルゴリズム" >
+        <meta  name="twitter:title"  content="01-bfs - 麻雀アルゴリズム" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/tile_space.png" >
+        <meta  name="twitter:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/01-bfs.png" >
       
     
     
@@ -108,7 +108,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#01-bfs" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1. 牌空間
+              01-bfs
             
           </span>
         </div>
@@ -279,31 +279,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    1. 牌空間
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tile_space/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -313,35 +292,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      定義
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -455,17 +405,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -480,7 +432,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             MISC
@@ -579,10 +531,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../01-bfs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -592,6 +553,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -646,23 +608,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      定義
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -680,83 +625,8 @@
   
 
 
-<h1 id="_1">牌空間<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>萬子, 筒子, 索子, 字牌の各集合を順に<span class="arithmatex">\(H^0, H^1, H^2, H^3\)</span>と表す. 上付き添え字は牌のグループを区別するためのものである. すべての牌の集合は</p>
-<div class="arithmatex">\[
-H = H^0 \times H^1 \times H^2 \times H^3
-\]</div>
-<p>のように<strong>直積集合</strong>として表される. さらに任意の手牌<span class="arithmatex">\(h \in H\)</span>を</p>
-<div class="arithmatex">\[
-h = (h^0, h^1, h^2, h^3)
-\]</div>
-<p>のように順序対(タプル)で表す. ただし<span class="arithmatex">\(h^n \in H^n\)</span>は<span class="arithmatex">\(n\)</span>番目のグループの牌の集合である. また<span class="arithmatex">\(h^n_i\)</span>のように下付き添え字を付ける場合は<span class="arithmatex">\(n\)</span>番目のグループの牌の集合から<span class="arithmatex">\(i\)</span>番目の牌の枚数を取得することを意味する. 例えば<span class="arithmatex">\(h^0_0\)</span>は一萬の枚数, <span class="arithmatex">\(h^1_8\)</span>は九筒の枚数, <span class="arithmatex">\(h^3_0\)</span>は東の枚数, <span class="arithmatex">\(h^3_4\)</span>は白の枚数である. 牌と各添え字の対応は以下の表のようになる.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">n\i</th>
-<th style="text-align: left;">0</th>
-<th style="text-align: left;">1</th>
-<th style="text-align: left;">2</th>
-<th style="text-align: left;">3</th>
-<th style="text-align: left;">4</th>
-<th style="text-align: left;">5</th>
-<th style="text-align: left;">6</th>
-<th style="text-align: left;">7</th>
-<th style="text-align: left;">8</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">一萬</td>
-<td style="text-align: left;">二萬</td>
-<td style="text-align: left;">三萬</td>
-<td style="text-align: left;">四萬</td>
-<td style="text-align: left;">五萬</td>
-<td style="text-align: left;">六萬</td>
-<td style="text-align: left;">七萬</td>
-<td style="text-align: left;">八萬</td>
-<td style="text-align: left;">九萬</td>
-</tr>
-<tr>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">一筒</td>
-<td style="text-align: left;">二筒</td>
-<td style="text-align: left;">三筒</td>
-<td style="text-align: left;">四筒</td>
-<td style="text-align: left;">五筒</td>
-<td style="text-align: left;">六筒</td>
-<td style="text-align: left;">七筒</td>
-<td style="text-align: left;">八筒</td>
-<td style="text-align: left;">九筒</td>
-</tr>
-<tr>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">一索</td>
-<td style="text-align: left;">二索</td>
-<td style="text-align: left;">三索</td>
-<td style="text-align: left;">四索</td>
-<td style="text-align: left;">五索</td>
-<td style="text-align: left;">六索</td>
-<td style="text-align: left;">七索</td>
-<td style="text-align: left;">八索</td>
-<td style="text-align: left;">九索</td>
-</tr>
-<tr>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">東</td>
-<td style="text-align: left;">南</td>
-<td style="text-align: left;">西</td>
-<td style="text-align: left;">北</td>
-<td style="text-align: left;">白</td>
-<td style="text-align: left;">発</td>
-<td style="text-align: left;">中</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<h1 id="01-bfs">01-BFS<a class="headerlink" href="#01-bfs" title="Permanent link">&para;</a></h1>
+<p><a href="https://habara-k.hatenadiary.jp/entry/2021/06/09/181140">https://habara-k.hatenadiary.jp/entry/2021/06/09/181140</a></p>
 
 
 
