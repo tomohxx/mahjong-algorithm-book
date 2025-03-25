@@ -56,6 +56,9 @@ nav:
       - 天和の確率: 'tenhou.md'
       - 和了確率の表式: 'formula.md'
       - 配牌時向聴数: 'shanten.md'
+      - 枝刈りDFS: 'dfs.md'
+      - 01-bfs: '01-bfs.md'
+      - 最小完全ハッシュ関数: 'mphf.md'
 
 copyright: 'Copyright &copy; 2020-2025 tomohxx'
 
