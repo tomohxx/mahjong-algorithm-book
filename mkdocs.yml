@@ -52,10 +52,10 @@ nav:
   - 4. 固有形: 'unique_form.md'
   - 5. 集合漸化式: 'srf.md'
   - 6. 和了確率: 'probability.md'
-  - 付録:
-      - A. 天和の確率: 'tenhou.md'
-      - B. 和了確率の表式: 'formula.md'
-      - C. 配牌時向聴数: 'shanten.md'
+  - MISC:
+      - 天和の確率: 'tenhou.md'
+      - 和了確率の表式: 'formula.md'
+      - 配牌時向聴数: 'shanten.md'
 
 copyright: 'Copyright &copy; 2020-2025 tomohxx'
 
