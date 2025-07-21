@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="麻雀アルゴリズム 麻雀プログラミング">
+      
+      
+        <meta name="author" content="tomohxx">
       
       
         <link rel="canonical" href="https://tomohxx.github.io/mahjong-algorithm-book/srf/">
@@ -69,7 +73,7 @@
       
         <meta  property="og:title"  content="5. 集合漸化式 - 麻雀アルゴリズム" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="麻雀アルゴリズム 麻雀プログラミング" >
       
         <meta  property="og:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/srf.png" >
       
@@ -85,7 +89,7 @@
       
         <meta  name="twitter:title"  content="5. 集合漸化式 - 麻雀アルゴリズム" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="麻雀アルゴリズム 麻雀プログラミング" >
       
         <meta  name="twitter:image"  content="https://tomohxx.github.io/mahjong-algorithm-book/assets/images/social/srf.png" >
       
@@ -818,7 +822,7 @@ S(h) = T(h) - 1
 \]</div>
 <p><span class="arithmatex">\(h^n\)</span>から<span class="arithmatex">\(g^n\)</span>に変化させるために必要な牌の枚数を距離<span class="arithmatex">\(d(g^n, h^n)\)</span>として以下のように定義する.</p>
 <div class="arithmatex">\[
-d(g^n, h^n) = \frac{1}{2} \sum_{i} (|g^n_i - h^n_i| + g^n_i - h^n_i)
+d(g^n, h^n) = \frac{1}{2} \sum_{i} \max(g^n_i - h^n_i, 0)
 \]</div>
 <p>これを用いて手牌<span class="arithmatex">\(h\)</span>を手牌<span class="arithmatex">\(g\)</span>に変化させるのに必要な牌の枚数は</p>
 <div class="arithmatex">\[
