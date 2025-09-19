@@ -61,6 +61,7 @@ nav:
       - 枝刈りDFS: 'dfs.md'
       - 01-bfs: '01-bfs.md'
       - 最小完全ハッシュ関数: 'mphf.md'
+      - 【図解】向聴数計算アルゴリズム: 'illustration.md'
 
 copyright: 'Copyright &copy; 2020-2025 tomohxx'
 
