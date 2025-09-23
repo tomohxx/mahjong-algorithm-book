@@ -657,69 +657,28 @@
   <figcaption>図1: 置換数(向聴数)の定義</figcaption>
 </figure>
 
-<p>ここで手牌どうしの比較は次のように行われる. 手牌を長さ34の配列で表現し, n番目の要素がn番目の牌の枚数を表すものとする. それぞれの手牌の配列に対して要素ごとに差をとり, 正の値だけ総和をとれば一方の手牌からもう一方の手牌を作るのに必要な牌の枚数を計算できる. 例えば<em>123579m</em>から<em>567999m</em>を作るには以下のように計算して3枚必要とわかる.</p>
-<div class="arithmatex">\[
-\begin{pmatrix}
-0 \\
-0 \\
-0 \\
-0 \\
-1 \\
-1 \\
-1 \\
-0 \\
-3 \\
-0 \\
-\vdots \\
-0
-\end{pmatrix}
--
-\begin{pmatrix}
-1 \\
-1 \\
-1 \\
-0 \\
-1 \\
-0 \\
-1 \\
-0 \\
-1 \\
-0 \\
-\vdots \\
-0
-\end{pmatrix}
-=
-\begin{pmatrix}
--1 \\
--1 \\
--1 \\
-0 \\
-0 \\
-1 \\
-0 \\
-0 \\
-2 \\
-0 \\
-\vdots \\
-0
-\end{pmatrix}
-\]</div>
-<p>当然ながら向聴数をこの定義通りに計算することは和了形の集合のサイズが巨大であることから時間的・空間的に非現実的である. そのため各色でm面子0/1雀頭を作るために必要な牌の枚数の組合せ(これを部分置換数とする)から手牌全体で4面子1雀頭を作るために必要な牌の枚数を知ることができないか考える.</p>
+<p>ここで手牌の比較は次のように行われる. 手牌を長さ34の配列で表現し, n番目の要素がn番目の牌の枚数を表すものとする. それぞれの手牌の配列に対して要素ごとに差をとり, 正の値だけ総和をとれば一方の手牌からもう一方の手牌を作るのに必要な牌の枚数を計算できる. 例えば<em>123579m</em>から<em>567999m</em>を作るには以下のように計算して3枚必要とわかる.</p>
+<figure text-align="center">
+  <img src="../img/shanten-subtraction.svg"/>
+  <figcaption>図2: 手牌の比較</figcaption>
+</figure>
+
+<p>当然ながら向聴数をこの定義通りに計算することは和了形の集合のサイズが巨大であることから時間的・空間的に非現実的である. そのため各色(萬子・筒子・索子・字牌)でm面子0/1雀頭を作るために必要な牌の枚数の組合せ(これを部分置換数とする)から手牌全体で4面子1雀頭を作るために必要な牌の枚数を知ることができないか考える.</p>
 <figure text-align="center">
   <img src="../img/shanten-distance.svg"/>
-  <figcaption>図2: 部分置換数の定義</figcaption>
+  <figcaption>図3: 部分置換数の定義</figcaption>
 </figure>
 
 <p>先述の手牌<em>23489m6799p22567s</em>では各色の部分置換数は以下のようになる.</p>
 <figure text-align="center">
   <img src="../img/shanten-distance-table.svg"/>
-  <figcaption>図3: 部分置換数のテーブル</figcaption>
+  <figcaption>図4: 部分置換数のテーブル</figcaption>
 </figure>
 
 <p>これらの値から手牌全体の置換数を求めたい. <span class="arithmatex">\(0\)</span>から<span class="arithmatex">\(n\)</span>番目の色までの部分手牌から得られる部分置換数を<span class="arithmatex">\((u^{(n)}_m, t^{(n)}_m)\)</span>, <span class="arithmatex">\(n+1\)</span>番目の色の部分手牌から得られる部分置換数を<span class="arithmatex">\((u^{n+1}_m, t^{n+1}_m)\)</span>とすると, これらから<span class="arithmatex">\((u^{(n+1)}_m, t^{(n+1)}_m)\)</span>を求めることが目標である.</p>
 <figure text-align="center">
   <img src="../img/shanten-addition.svg"/>
-  <figcaption>図4: 部分置換数の足し算</figcaption>
+  <figcaption>図5: 部分置換数の足し算</figcaption>
 </figure>
 
 <p>この計算方法は以下の連立漸化式を解くことである.</p>
@@ -734,7 +693,7 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 <p>計算過程の一部を図示すると以下のようになる.</p>
 <figure text-align="center">
   <img src="../img/shanten-dp.svg"/>
-  <figcaption>図5: 計算過程</figcaption>
+  <figcaption>図6: 計算過程</figcaption>
 </figure>
 
 <p>(1)では萬子と筒子の部分手牌から4面子1雀頭を作るのに必要な枚数を計算する. このときあり得る和了形は以下のいずれかである.</p>
@@ -753,10 +712,10 @@ t^{(n+1)}_m &amp;= \min_{0 \le l \le m} \left\{ \min\{ t^{(n)}_l + u^{n+1}_{m-l}
 <p>3, 8, 9番目の和了形を作るのに必要な枚数の最小値がそれぞれ5となるため<span class="arithmatex">\(t^{(1)}_4=5\)</span>となる. 同様に他の部分置換数も計算すればよい. 最終的な計算結果は次のようになる. <span class="arithmatex">\(t^{(3)}_4=2\)</span>であるため手牌全体の置換数は2である. これは最初に述べたすべての和了形の集合と比較する方法による結果と一致する.</p>
 <figure text-align="center">
   <img src="../img/shanten-result.svg"/>
-  <figcaption>図6: 計算結果</figcaption>
+  <figcaption>図7: 計算結果</figcaption>
 </figure>
 
-<p>このように全体の問題を部分問題の結果を利用して解く手法は<strong>動的計画法(DP)</strong>と呼ばれる. 実装上は部分置換数は配列に格納されるが, 図5の順番で計算することで配列の使い回し(in-place化と呼ばれる)が可能となる. ここでは<span class="arithmatex">\((u^{(n)}_m, t^{(n)}_m)\)</span>と<span class="arithmatex">\((u^{(n+1)}_m, t^{(n+1)}_m)\)</span>を同じ配列にすることができる.</p>
+<p>このように全体の問題を部分問題の結果を利用して解く手法は<strong>動的計画法(DP)</strong>と呼ばれる. 実装上は部分置換数は配列に格納されるが, 図6の順番で計算することで配列の使い回し(in-place化と呼ばれる)が可能となる. ここでは<span class="arithmatex">\((u^{(n)}_m, t^{(n)}_m)\)</span>と<span class="arithmatex">\((u^{(n+1)}_m, t^{(n+1)}_m)\)</span>を同じ配列にすることができる.</p>
 <p>本手法では事前に<span class="arithmatex">\((u^n_m, t^n_m)\)</span>を計算しておく必要がある. その方法として愚直にm面子0/1雀頭形と比較する全探索が最も単純であるが, <a href="../dfs/">枝刈りDFS</a>や<a href="../01-bfs/">01-BFS</a>といったより効率の良い方法が存在する. また, 全探索と枝刈りDFSについては並列化による高速化も可能である.</p>
 <p>ここで解説したアルゴリズムの実装は<a href="https://github.com/tomohxx/shanten-number">shanten-number</a>を参照すること.</p>
 
