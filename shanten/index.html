@@ -730,7 +730,7 @@
 <h2 id="_2">概要<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>すべての手牌について向聴数を計算しようとすると計算量が大きくなってしまう. 事前に数牌と字牌の向聴数を計算するためのパラメータについて集約し, 同じパラメータがいくつ存在するかをメモしておく. 手牌の枚数が予め決められた数になるようなすべてのパラメータの組み合わせを全探索する. このとき向聴数を計算しながら同じ向聴数となる手牌の数も計算することで計算量を小さくできる. また, 数牌の色どうしを入れ替えても向聴数は変わらない事実を利用することでさらに計算量を小さくできる.</p>
 <h2 id="_3">ソースコード<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><a href="https://gist.github.com/tomohxx/4580b573429e4cc049e91d3f3c786bd8">shanten-dfs.cpp</a>を参照.</p>
+<p><a href="https://gist.github.com/tomohxx/9ccf10da4b351327c46658085f005f78">shanten-dp.cpp</a>を参照.</p>
 <p>出力:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -755,7 +755,7 @@
 6       6601397483077632        0.00155316
 Number of Tiles: 14
 Total: 4250305029168216000
-Time (msec.): 6364
+Time (msec.): 2281
 Avg Shanten: 3.15594
 </code></pre></div></td></tr></table></div>
 <p>配牌時(手牌の枚数が 14 枚のとき)向聴数の平均値は<code>3.15594</code>である.</p>
