@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-[shanten-dfs.cpp](https://gist.github.com/tomohxx/4580b573429e4cc049e91d3f3c786bd8)を参照.
+[shanten-dp.cpp](https://gist.github.com/tomohxx/9ccf10da4b351327c46658085f005f78)を参照.
 
 出力:
 
@@ -22,7 +22,7 @@ Shanten Count   Prop
 6       6601397483077632        0.00155316
 Number of Tiles: 14
 Total: 4250305029168216000
-Time (msec.): 6364
+Time (msec.): 2281
 Avg Shanten: 3.15594
 ```
 
